@@ -20,7 +20,7 @@
 				allBurgers : data
 			};
 			console.log(fullBurgersObj);
-			response.render("index",fullBurgersObj);
+			response.render("index",fullBurgersObj); 
 		});
 	});
 
