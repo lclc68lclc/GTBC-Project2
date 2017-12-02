@@ -24,9 +24,12 @@
 		//check the reroute parmeter. 
 		switch (request.params.reroute) {
 
-			// //If it's iquit, reroute to the iquit.html
-			// case "iquit":
-			// 	return response.sendFile(path.join(__dirname,"../public/iquit.html"));
+			// Always default to the home page. Other routes should be results & survey
+			case "results":
+				return response.sendFile(path.join(__dirname,"../public/results.html"));
+
+			case "survey":
+				return response.sendFile(path.join(__dirname,"../public/survey.html"));
 			
 			// Default to the home page
 			default:
