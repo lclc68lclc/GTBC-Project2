@@ -10,12 +10,20 @@
 
 var db = require("../models");
 
-var derivedTable =
 
-    module.exports = function(app) {
-        app.post("/api/", function(req, res) {
-            console.log(req.body);
-            db.User.create({
+module.exports = function(app) {
+
+    //Get the model from the db
+    app.get("/api/", function(req, res) {
+        db.User.findAll({})
+            .then(function(dbUser) {
+                res.json(dbUser);
+            });
+    });
+
+    // POST route for posting a quiz to the db
+    app.post("/api/", function(req, res) {
+        db.User.create({
                 Age: req.body[0],
                 Gender: req.body[1],
                 MaritalStatus: req.body[2],
@@ -38,15 +46,10 @@ var derivedTable =
                 RelationshipSatisfaction: req.body[19],
                 YearsAtCompany: req.body[20],
                 YearsWithCurrManager: req.body[21],
-                NumCompaniesWorked: req.body[22],
-            });
+                NumCompaniesWorked: req.body[22]
+            })
             .then(function(dbPost) {
                 res.json(dbPost);
             });
-        });
-
-        app.get("/api/", function(req, res) {
-                    db.User.query('Select AVG(?) from (SELECT * FROM glassdoor_comments WHERE MaritalStatus= ? AND Education = ? AND StandardHours = 80 AND BusinessTravel = ?)', { replacements: ['active'], type: sequelize.QueryTypes.SELECT }).then(projects => {
-                        console.log(projects);
-                    })
-                }
+    });
+};
