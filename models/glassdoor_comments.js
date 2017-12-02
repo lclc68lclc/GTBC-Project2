@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-    return sequelize.define('glassdoor_comments', {
+    var User = sequelize.define('glassdoor_comments', {
         Age: {
             type: DataTypes.INTEGER(11),
             allowNull: true
@@ -109,4 +109,5 @@ module.exports = function(sequelize, DataTypes) {
     }, {
         tableName: 'glassdoor_comments'
     });
+    return User;
 };
