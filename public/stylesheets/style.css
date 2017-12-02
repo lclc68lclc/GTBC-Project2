@@ -1,39 +1,41 @@
 
 .masthead.segment {
-      min-height: 700px;
-      padding: 1em 0em;
-    }
+  min-height: 700px;
+  padding: 1em 0em;
+}
 
 
-    .masthead h1.ui.header {
-      margin-top: 3em;
-      margin-bottom: 0em;
-      font-size: 5em;
-      font-weight: normal;
-      font-family: 'Londrina Outline', cursive;
-      
-    }
-    .masthead h2 {
-      font-size: 1.7em;
-      font-weight: normal;
-      font-family: 'Raleway', sans-serif;
-    }
+.masthead h1.ui.header {
+  margin-top: 3em;
+  margin-bottom: 0em;
+  font-size: 5em;
+  font-weight: normal;
+  font-family: 'Londrina Outline', cursive;
+  
+}
+.masthead h2 {
+  font-size: 1.7em;
+  font-weight: normal;
+  font-family: 'Raleway', sans-serif;
+}
 
-    .ui.vertical.stripe {
-      padding: 8em 0em;
-    }
-    .ui.vertical.stripe h3 {
-      font-size: 2em;
-      font-family: 'Raleway', sans-serif;
-    }
+.ui.vertical.stripe {
+  padding: 8em 0em;
+}
+
+.ui.vertical.stripe h3 {
+  font-size: 2em;
+  font-family: 'Raleway', sans-serif;
+}
    
-    .ui.vertical.stripe .floated.image {
-      clear: both;
-    }
-    h4{
-      font-family: 'Raleway', sans-serif;
-      text-align: center;
-    }
+.ui.vertical.stripe .floated.image {
+  clear: both;
+}
+
+h4{
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  }
    
     .ui.vertical.stripe p {
       font-size: 1.33em;
@@ -65,11 +67,11 @@
 
 
 
-      .ui.inverted.segment, 
-  .ui.primary.inverted.segment{
+.ui.inverted.segment, 
+.ui.primary.inverted.segment{
   background-image: url('https://fthmb.tqn.com/eCOK8MHOcB9CCl9GyHUnq5ZZCUs=/768x0/filters:no_upscale()/office-worker-working-late--throwing-paper-in-the-air-145073992-594c2e8f3df78cae815672d0.jpg');
-    background-size: cover;  
-    height: 90%;
+  background-size: cover;  
+  height: 90%;
 
 }
   
