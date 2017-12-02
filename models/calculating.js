@@ -1,26 +1,56 @@
 //____________This is for the math_________________
 
-	var arrayFromSurvey = [1,2,3,2,4,5,1,4,3,1,4,1,2,4,1,2]; // length 16
+	function compareUserResponses(UserArray, callback){
+ 		
+		var = DataQueryArray; //this will be the result from the query
 
-	var arrayOfAveragesFromQuery = [2,3,2,4,5,1,4,3,1,4,1,2,4,1,2,1];
+		var pointsEarned = 0;
 
-	var pointsEarned = 0;
-
-	for (var i = 0; i <arrayFromSurvey.length; i++ ){
-		if (arrayFromSurvey[i] >= arrayOfAveragesFromQuery[i]){
-			pointsEarned++;
+		for (var i = 0; i <UserArray.length; i++ ){
+			if (UserArray[i] >= DataQueryArray[i]){
+				pointsEarned++;
+			}
 		}
-	}
 
-	var percentToQuit = Math.ceil((pointsEarned/(arrayOfAveragesFromQuery.length))*100);
+		var percentToQuit = Math.ceil((pointsEarned/(DataQueryArray.length))*100);
 
-	if (percentToQuit<= 50){
-		//give the user the "You Need To Quit Modal/Page"
-	}
-	else if (percentToQuit > 50 && percentToQuit <=80){
-		//give the user the "You're Doing Ok. Learn/Improve your Skills"
-	}
-	else if (percentToQuit> 80){
-		// give the user the "You're Doing Great! Take a vacation!"
-	}
+		if (percentToQuit<= 50){
+			//give the user the "You Need To Quit Modal/Page"
+			var userResults = {
+				UserShould: "We believe you are not satisfied with your job and you should QUIT!",
+				Description: "Below are some useful resources:",
+				TopLink: "", //a File for quiting (resignnation letter)
+				Link1: "",
+				Link2: "",
+				Link3: "",
+
+			};
+		}
+		else if (percentToQuit > 50 && percentToQuit <=80){
+			//give the user the "You're Doing Ok. Learn/Improve your Skills"
+			var userResults = {
+				UserShould: "We believe you are doing OK in your position and you should keep your job!",
+				Description: "Below are links to help enhance your current work experience",
+				TopLink: "", //a file to negotiation
+				Link1: "",
+				Link2: "",
+				Link3: "",
+
+			};
+		}
+		else if (percentToQuit> 80){
+			// give the user the "You're Doing Great! Take a vacation!"
+			var userResults = {
+				UserShould: "You are currently doing GREAT! Let's take a vacation! ",
+				Description: "Below are some useful trip planning resources",
+				TopLink: "", //a file to request time off
+				Link1: "",
+				Link2: "",
+				Link3: "",
+
+			};
+		};
+	};
+
+	module.exports = compareUserResponses;
 //_____________________________________________________
