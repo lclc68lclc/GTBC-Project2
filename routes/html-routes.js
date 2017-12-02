@@ -25,15 +25,15 @@
 		switch (request.params.reroute) {
 
 			// Always default to the home page. Other routes should be results & survey
-			case "results":
-				return response.sendFile(path.join(__dirname,"../public/results.html"));
+			case "result":
+				return response.sendFile(path.join(__dirname,"../public/result.html"));
 
-			case "survey":
-				return response.sendFile(path.join(__dirname,"../public/survey.html"));
-			
+			case "quiz":
+				return response.sendFile(path.join(__dirname,"../public/quiz.html"));
+
 			// Default to the home page
 			default:
-				return response.sendFile(path.join(__dirname,"../public/index.html"));
+				return response.sendFile(path.join(__dirname,"../public/main.html"));
 		}
 	});
 //_____________________________________________________________
