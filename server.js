@@ -1,55 +1,26 @@
-//____________Dependencies________________
-	var express = require("express");
-	var bodyParser = require("body-parser");
-//________________________________________
+// Requiring necessary npm packages
+var express = require("express");
+var bodyParser = require("body-parser");
+var session = require("express-session");
+// Requiring passport as we've configured it
 
+// Setting up port and requiring models for syncing
+var PORT = process.env.PORT || 8080;
+var db = require("./models");
 
-//___________Express Application_____________
-	var app = express();
-	//process.env.PORT for Heroku to make a port
-	var PORT  = process.env.PORT || 3000;
+// Creating express app and configuring middleware needed for authentication
+var app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(express.static("public"));
 
-	// Requiring our models for syncing
-	var db = require("./models");	
+// Requiring our routes
+//require("./routes")(app);
+require("./routes/api-routes.js")(app);
 
-	//app should handle data parsing	
-	app.use(bodyParser.urlencoded({extended:false}));
-	app.use(bodyParser.json());
-	app.use(bodyParser.text());
-	app.use(bodyParser.json({type:"application/vnd.api+json"}));
-
-	 // Static directory
-	app.use(express.static("./public"));
-//___________________________________________
-
-
-
-//________________ROUTES _______________
-
-	// //require our routes from different directories
-	// require("./routes/html-routes.js")(app);
-
-	// require("./routes/api-routes.js")(app);
-
-	//require our routes from different directories
-	var htmlRoutes = require("./routes/html-routes.js");
-	app.use("/",htmlRoutes,function(req,res){
-		console.log(req + " " + res);
-	});
-
-	var apiRoutes = require("./routes/api-routes.js");
-	app.use("/",apiRoutes,function(req,res){
-		console.log(req + " " + res);
-	});
-//___________________________________________
-
-
-
-//_____________Start the Server______________
-	db.sequelize.sync().then(function(){
-		app.listen(PORT,function(){
-			console.log("Get Your Life is ready to analyze your work life! (Port: " + PORT+" )");
-		});
-	});
-//___________________________________________
-
+// Syncing our database and logging a message to the user upon success
+db.sequelize.sync().then(function() {
+    app.listen(PORT, function() {
+        console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
+    });
+});

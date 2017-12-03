@@ -4,16 +4,16 @@ var db = require("../models");
 module.exports = function(app) {
 
     //Get the model from the db
-    app.get("/api/", function(req, res) {
-        db.User.findAll({})
-            .then(function(dbUser) {
-                res.json(dbUser);
+    app.get("/api/glassdoor_data", function(req, res) {
+        db.glassdoor_comments.findAll({ limit: 100 })
+            .then(function(dbglassdoor_comments) {
+                res.json(dbglassdoor_comments);
             });
     });
 
     // POST route for posting a quiz to the db
     app.post("/api/", function(req, res) {
-        db.User.create({
+        db.glassdoor_comments.create({
                 Age: req.body[0],
                 Gender: req.body[1],
                 MaritalStatus: req.body[2],
@@ -37,8 +37,8 @@ module.exports = function(app) {
                 YearsWithCurrManager: req.body[20],
                 NumCompaniesWorked: req.body[21]
             })
-            .then(function(dbPost) {
-                res.json(dbPost);
+            .then(function(dbglassdoor_comments) {
+                res.json(dbglassdoor_comments);
             });
     });
 };
