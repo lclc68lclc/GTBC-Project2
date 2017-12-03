@@ -1,6 +1,6 @@
 //____________This is for the math_________________
 
-function compareUserResponses(UserArray, callback) {
+function compareUserResponses(UserArray, userResults) {
 
     var dataQueryObject = 'SELECT AVG(DistanceFromHome), AVG(AbsentHours),' + 
     'AVG(WorkLifeBalance), AVG(StockOptions), AVG(PercentSalaryHike), ' +
@@ -12,49 +12,56 @@ function compareUserResponses(UserArray, callback) {
     'AS t'; //this will be the result from the query
 
     var pointsEarned = 0;
+    //this is an array of indices of the answers we need to compare to the query above
+    var answersNeeded = [6,8,9,10,11,12,13,14,15,16,17,18,19,20,21];
+    var index = 0;
+    for (var key in dataQueryObject) {
 
-    for (var i = 0; i < UserArray.length; i++) {
-        if (UserArray[i] >= DataQueryArray[i]) {
+        if (UserArray[answersNeeded[index]] >= dataQueryObject[key]) {
             pointsEarned++;
         }
+        index++;
     }
 
-    var percentToQuit = Math.ceil((pointsEarned / (DataQueryArray.length)) * 100);
+    var percentToQuit = Math.ceil((pointsEarned / (answersNeeded.length)) * 100);
 
     if (percentToQuit <= 50) {
         //give the user the "You Need To Quit Modal/Page"
-        var userResults = {
+        userResults = {
             UserShould: "We believe you are not satisfied with your job and you should QUIT!",
             Description: "Below are some useful resources:",
-            TopLink: "", //a File for quiting (resignnation letter)
-            Link1: "",
-            Link2: "",
-            Link3: "",
+            TopLink: "http://thecorporatetea.com/wp-content/uploads/2016/07/quit-job-check-mark-white-paper-39727680.jpg",
+            Link1: "https://www.monster.com/career-advice/article/resignation-letter-sample",
+            Link2: "https://pe.gatech.edu/courses/georgia-tech-coding-boot-camp",
+            Link3: "https://www.buzzfeed.com/kristinchirico/12-of-the-absolute-best-ways-you-can-quit-your-job?utm_term=.eoZ1elmMR#.rlBVy0NBE"
 
         };
-    } else if (percentToQuit > 50 && percentToQuit <= 80) {
+    } 
+    else if (percentToQuit > 50 && percentToQuit <= 80) {
         //give the user the "You're Doing Ok. Learn/Improve your Skills"
-        var userResults = {
+        userResults = {
             UserShould: "We believe you are doing OK in your position and you should keep your job!",
             Description: "Below are links to help enhance your current work experience",
-            TopLink: "", //a file to negotiation
-            Link1: "",
-            Link2: "",
-            Link3: "",
+            TopLink: "https://www.pickthebrain.com/blog/wp-content/uploads/2015/09/Screen-Shot-2015-09-29-at-11.27.02-PM.png",
+            Link1: "https://www.forbes.com/sites/davidkwilliams/2016/07/06/12-ways-to-improve-work-life-balance-beginning-today/#2480be2364ef",
+            Link2: "https://www.ted.com/talks/casey_brown_know_your_worth_and_then_ask_for_it",
+            Link3: "https://www.lynda.com/"
 
         };
-    } else if (percentToQuit > 80) {
+    } 
+    else if (percentToQuit > 80) {
         // give the user the "You're Doing Great! Take a vacation!"
-        var userResults = {
+        userResults = {
             UserShould: "You are currently doing GREAT! Let's take a vacation! ",
             Description: "Below are some useful trip planning resources",
-            TopLink: "", //a file to request time off
-            Link1: "",
-            Link2: "",
-            Link3: "",
+            TopLink: "https://www.quickbase.com/blog/wp-content/uploads/sites/2/2015/06/How-to-Get-Employees-to-Take-Vacation-%E2%80%93-and-Why-You-Should.jpg", //a file to request time off
+            Link1: "https://www.kayak.com/explore/",
+            Link2: "https://www.airbnb.com/",
+            Link3: "https://www.tripadvisor.com/Attractions"
 
         };
     };
+    return userResults;
 };
 
 module.exports = compareUserResponses;

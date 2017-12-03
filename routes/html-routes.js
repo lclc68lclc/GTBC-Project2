@@ -22,7 +22,7 @@ module.exports = function(app) {
 		switch (req.params.whichPage) {
 
 			// Always default to the home page. Other routes should be results & survey
-			case "result":
+			case "results":
 				return res.sendFile(path.join(__dirname,"../public/result.html"));
 
 			case "quiz":
