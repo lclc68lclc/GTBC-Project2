@@ -1,14 +1,13 @@
-<!DOCTYPE html>
 <html class="gr__semantic-ui_com"><head>
   <!-- Standard Meta -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-<head>
-	<title>Quiz</title>
+  <!-- Site Properties -->
+  <title>Quiz</title>
 
-<!-- Semantic UI components: css -->
+  <!-- Semantic UI components: css -->
   <link rel="stylesheet" type="text/css" href="semantic/components/reset.css">
   <link rel="stylesheet" type="text/css" href="semantic/components/site.css">
 
@@ -19,581 +18,420 @@
   <link rel="stylesheet" type="text/css" href="semantic/components/menu.css">
 
   <link rel="stylesheet" type="text/css" href="semantic/components/divider.css">
-  <link rel="stylesheet" type="text/css" href="semantic/components/dropdown.css">
-  <link rel="stylesheet" type="text/css" href="semantic/components/segment.css">
-  <link rel="stylesheet" type="text/css" href="semantic/components/button.css">
   <link rel="stylesheet" type="text/css" href="semantic/components/list.css">
+  <link rel="stylesheet" type="text/css" href="semantic/components/segment.css">
+  <link rel="stylesheet" type="text/css" href="semantic/components/dropdown.css">
   <link rel="stylesheet" type="text/css" href="semantic/components/icon.css">
-  <link rel="stylesheet" type="text/css" href="semantic/components/sidebar.css">
-  <link rel="stylesheet" type="text/css" href="semantic/components/transition.css">
   <link rel="stylesheet" type="text/css" href="semantic/components/accordion.css">
-  <link rel="stylesheet" type="text/css" href="semantic/components/range.css">
+  <link rel="stylesheet" type="text/css" href="semantic/components/progress.css">
+  <link rel="stylesheet" type="text/css" href="semantic/components/button.css">
   <link rel="stylesheet" type="text/css" href="semantic/components/progress.css">
 
- <!--   external css -->
-  <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-<!-- google font -->
-  <link href="https://fonts.googleapis.com/css?family=Londrina+Outline|Raleway" rel="stylesheet">
+<!--   <link rel="stylesheet" type="text/css" href="style.css"> -->
+  <script src="semantic/semantic.min.js"></script>
+
+ <!-- google font -->
+ <link href="https://fonts.googleapis.com/css?family=Londrina+Outline|Raleway" rel="stylesheet">
 <!-- jQuery -->
-  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+ <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
 <!-- Semantic JS -->
  <script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
+ src="https://code.jquery.com/jquery-3.1.1.min.js"
+ integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+ crossorigin="anonymous"></script>
+​<!-- Semantic UI components: js -->
+<script src="semantic/semantic.min.js"></script>
+<script src="semantic/components/visibility.js"></script>
+<script src="semantic/components/sidebar.js"></script>
+<script src="semantic/components/transition.js"></script>
+<script src="semantic/components/accordion.js"></script>
+<script src="semantic/components/progress.js"></script>
+<script src="semantic/components/range.js"></script>
+<script type="text/javascript" href="semantic/components/accordion.js"></script>
+<script scr="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/components/accordion.js"></script>
 
- <script src="semantic/semantic.min.js"></script>
- <script scr="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/components/accordion.js"></script>
+  <style type="text/css">
 
-<!-- Semantic UI components: js -->
-  <script src="semantic/components/visibility.js"></script>
-  <script src="semantic/components/sidebar.js"></script>
-  <script src="semantic/components/transition.js"></script>
-  <script src="semantic/components/accordion.js"></script>
-  <script src="semantic/components/progress.js"></script>
-  <script src="semantic/components/range.js"></script>
-  <script>
-  $(document).ready(function () {
-        $(".accordion").accordion();
+/*  .ui.menu .item img.logo {
+    margin-right: 1.5em;
+  }*/
+  .main.container {
+    margin-top: 7em;
+  }
+  .wireframe {
+    margin-top: 2em;
+  }
+/*  .ui.footer.segment {
+    margin: 5em 0em 0em;
+    padding: 5em 0em;
+  }*/
 
-        $('#miles').range({
-    min: 0,
-    max: 50,
-    start: 0,
-    onChange: function(value) {
-      $('#milesDisplay').html(value);
-    }
-  });
+  .footer {
+  background-color: #1b1c1d;
+  color: white;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
 
-  	$('#missing').range({
-    min: 0,
-    max: 365,
-    start: 0,
-    onChange: function(value) {
-      $('#missingDisplay').html(value);
-    }
-  });
+#slidecontainer {
+    width: 100%;
+}
 
-    $('#raise').range({
-    min: 1,
-    max: 50,
-    start: 1,
-    onChange: function(value) {
-      $('#raiseDisplay').html(value);
-    }
-  });  	  	
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
 
-    $('#training').range({
-    min: 0,
-    max: 6,
-    start: 0,
-    onChange: function(value) {
-      $('#trainingDisplay').html(value);
-    }
-  }); 
+.slider:hover {
+    opacity: 1;
+}
 
-    $('#promotion').range({
-    min: 1,
-    max: 20,
-    start: 1,
-    onChange: function(value) {
-      $('#promotionDisplay').html(value);
-    }
-  });  	 	
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
 
-    $('#workyear').range({
-    min: 0,
-    max: 50,
-    start: 0,
-    onChange: function(value) {
-      $('#workyearDisplay').html(value);
-    }
-  });  
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
 
-    $('#manager').range({
-    min: 0,
-    max: 50,
-    start: 0,
-    onChange: function(value) {
-      $('#managerDisplay').html(value);
-    }
-  });  	  	
+body{
+  font-family: 'Raleway', sans-serif;
 
-    $('#jobs').range({
-    min: 1,
-    max: 20,
-    start: 1,
-    onChange: function(value) {
-      $('#jobsDisplay').html(value);
-    }
-  });  	
+}
 
+</style>
 
-       
-});
-
-  	  	
-
-  </script>
 </head>
 <body data-gr-c-s-loaded="true">
 
 <div class="ui fixed inverted menu">
-	<div class="ui container">
-		<a href="#" class="header item">Should I Quit My Job?</a>
-	</div>
+    <div class="ui container">
+      <a href="#" class="header item">Should I Quit My Job?</a>      
+    </div>
 </div>
 
 <div class="ui main text container">
-    <h1 class="ui header">Take This Quiz to Find Out If It's Time to Say Goodbye</h1>
-
-<!-- progress bar -->
+  <h1 class="ui header">Take This Quiz to Find Out If It's Time to Say Goodbye</h1>
+    
+<!--   <p>A text container is used for the main container, which is useful for single column layouts</p> -->
 <div class="ui indicating progress">
   <div class="bar"></div>
-<!--   <div class="label">Testing</div> -->
 </div>
 
-<!--  accordion start   -->
-    <div class="ui styled fluid accordion">
-		<div class ="active title">
-			<i class="dropdown icon"></i>
-			STEP 1. General Information
-		</div>
-		<div class = "active content">	
-			<!-- q1-1 -->
-			<p id="age"> Q. What is your age ? </p>
-			<div class="ui input" id="ageInput"> <input type="text"> </div><br>
+  <div class="ui styled fluid accordion">
+  
+    <div class ="active title">
+      <i class="dropdown icon"></i> STEP 1. General Information
+    </div>
 
-			<!-- q1-2 -->
-			<div class="ui form">
-			<div class="grouped fields" id="gneder">
-			<label> Q. How do you consider yourself to be ? </label><br>
-				<div class="field">
-				<div class="ui radio checkbox">
-				<input type="radio" value="male">
-				<label>Male</label>
-				</div>
-				</div>
-			
-				<div class="field">
-				<div class="ui radio checkbox">
-				<input type="radio" value="female">
-				<label>Female</label>
-				</div>
-				</div>
+    <div class = "active content">
+  <!-- q1 -->
+      <h4> Q. What is your age ? </h4>
+      <input type="number" name="quantity" id="q1" min="10" max="100">
+    <!-- q2-->  
+      <h4> Q. How do you consider yourself to be ? </h4>
+      <select class="chosen-select" id="q2">
+        <option value="select">Select One Option</option>
+        <option value="1"> Male</option>
+        <option value="2"> Female</option>
+        <option value="3"> Non-Binary</option>
+      </select>
+    <!-- q3-->  
+      <h4>Q. What is your martial status ?</h4>
+      <select class="chosen-select" id="q3">
+        <option value="select">Select One Option</option>
+        <option value="1"> Married</option>
+        <option value="2"> Single</option>
+        <option value="3"> Divorced</option>
+      </select>
+    <!-- q4-->      
+      <h4>Q. What is the highest degress or level of school you have compelete ?</h4>
+      <select class="chosen-select" id="q4">
+        <option value="select">Select One Option</option>
+        <option value="1"> High School</option>
+        <option value="2"> Some College</option>
+        <option value="3"> Bachelor</option>
+        <option value="4"> Master</option>
+        <option value="5"> Doctorate</option>
+      </select>
+    <!-- q5-->      
+      <h4>Q. What is the highest degress or level of school you have compelete ?</h4>
+      <select class="chosen-select" id="q5">
+        <option value="select">Select One Option</option>
+        <option value="1"> Full-time</option>
+        <option value="2"> Part-time</option>
+      </select>
+    <!-- q6-->      
+      <h4>Q. How often do you travel for work ?</h4>
+      <select class="chosen-select" id="q6">
+        <option value="select">Select One Option</option>
+        <option value="1"> Frequently </option>
+        <option value="2"> Rarely </option>
+        <option value="3"> Not at all</option>
+      </select>
+    </div>
 
-				<div class="field">
-				<div class="ui radio checkbox">
-				<input type="radio" name="gender-others">
-				<label>Non-binary/Prefer not to say</label>
-				</div>
-				</div>
-			</div>
-			</div><br>
-			<!-- q1-3 -->
-			<div class="ui form">
-			<div class="grouped fields" id="martial">
-    		<label> Q. What is your martial status ? </label><br>
-    			
-    			<div class="field">
-      			<div class="ui radio checkbox">
-        		<input type="radio" name="martial-single" value="single">
-       			<label>Single</label>
-      			</div>
-    			</div>
-
-    			<div class="field">
-      			<div class="ui radio checkbox">
-        		<input type="radio" name="martial" value="married">
-        		<label>Married</label>
-      			</div>
-    			</div>
-
-    			<div class="field">
-      			<div class="ui radio checkbox">
-        		<input type="radio" name="martial" value="divorced">
-        		<label>Divorced</label>
-      			</div>
-    			</div>
-
-			</div>
- 			</div><br>
-			<!-- q1-4 -->
- 		<div class="ui form">
-  		<div class="grouped fields">
-    	<label> Q. What is the highest degress or level of school you have compelete ? </label><br>
-
-   			<div class="field">
-      		<div class="ui radio checkbox">
-        	<input type="radio" name="education" value="highschool">
-        	<label>High School</label>
-      		</div>
-    		</div>
-
-    		<div class="field">
-      		<div class="ui radio checkbox">
-        	<input type="radio" name="education" value="somecollege">
-        	<label>Some College</label>
-      		</div>
-    		</div>
-
-    		<div class="field">
-      		<div class="ui radio checkbox">
-        	<input type="radio" name="education" value="Bachelor">
-        	<label>Bachelor</label>
-      		</div>
-    		</div>
+<!-- STEP2 -->
+    <div class="title">
+      <i class="dropdown icon"></i>STEP 2. Work - Life Balance
+    </div>
     
-    		<div class="field">
-      		<div class="ui radio checkbox">
-        	<input type="radio" name="education" value="master">
-        	<label>Master</label>
-      		</div>
-    		</div>
+    <div class="content">
 
-        	<div class="field">
-      		<div class="ui radio checkbox">
-        	<input type="radio" name="education" value="doctorate">
-        	<label>Doctorate</label>
-      		</div>
-    		</div>
+    <!-- q7-->      
+      <h4>Q. How far (in miles) are you from your job ? (1-50mile) </h4>
+        <div id="slidecontainer">
+          <input type="range" min="1" max="50" value="1" class="slider" id="q7"><br>
+          <br><br><p>Value: <span id="q7Display"></span></p>
+        </div>
 
-		</div>
-  		</div><br>
+    <!-- q8-->   
+      <h4>Q. Do you work overtime ? </h4>
+      <select class="chosen-select" id="q8">
+        <option value="select">Select One Option</option>
+        <option value="1"> Yes </option>
+        <option value="2"> No </option>
+      </select>
 
-			<!-- q1-5 -->
-		<div class="ui form">
-		<div class="grouped fields">
-    	<label> Q. Do you work Full-time or Part-time ? </label> <br>
+    <!-- q9-->  
+      <h4> Q. How many days of work have you missed? (0-365) </h4>
+        <div id="slidecontainer">
+        <input type="range" min="0" max="365" value="0" class="slider" id="q9"><br>
+        <br><br><p>Value: <span id="q9Display"></span></p>
+      </div>
 
-    		<div class="field">
-      		<div class="ui radio checkbox">
-        	<input type="radio" name="fullpart" value="full-time">
-        	<label>Full-time</label>
-      		</div>
-    		</div>
+   <!-- q10-->  
+      <h4> Q. How would you rate your overall work-life balance with your current job ? </h4>
+      <select class="chosen-select" id="q10">
+        <option value="select">Select One Option</option>
+        <option value="1"> 1 (Lowest) </option>
+        <option value="2"> 2 </option>
+        <option value="3"> 3 </option>
+        <option value="4"> 4 </option>
+        <option value="5"> 5 (Highest) </option>
+      </select>
 
-    		<div class="field">
-      		<div class="ui radio checkbox">
-        	<input type="radio" name="fullpart" value="part-time">
-        	<label>Part-time</label>
-      		</div>
-    		</div>
-    
-		</div>
-		</div><br>
+    </div>
 
-		<div class="ui form">
-  		<div class="grouped fields">
-    	<label>Q. How often do you travel for work ?</label>
-    
-    		<div class="field">
-      		<div class="ui radio checkbox">
-        	<input type="radio" name="travel" value="frequently">
-        	<label>Frequently</label>
-      		</div>
-    		</div>
+<!-- STEP3 -->
+    <div class="title">
+      <i class="dropdown icon"></i> STEP 3. Benefits
+    </div>
 
-    		<div class="field">
-      		<div class="ui radio checkbox">
-        	<input type="radio" name="travel" value="rarely">
-        	<label>Rarely</label>
-      		</div>
-    		</div>
+    <div class="content">
+   <!-- q11-->  
+      <h4> Q. Do you have stock options or a matched 401k ? </h4>
+      <select class="chosen-select" id="q11">
+        <option value="select">Select One Option</option>
+        <option value="0"> No </option>
+        <option value="1"> Stock options/Equity </option>
+        <option value="2"> 401k </option>
+        <option value="3"> Both </option>
+      </select>
 
-			<div class="field">
-      		<div class="ui radio checkbox">
-        	<input type="radio" name="travel" value="notatall">
-        	<label>Not at all</label>
-      		</div>
-    		</div>
-    
-		</div>
-		</div>
-	</div>
+   <!-- q12-->  
+      <h4> Q. What was the percentage of your last raise ? (1-50) </h4>
+      <div id="slidecontainer">
+        <input type="range" min="1" max="50" value="1" class="slider" id="q12"><br>
+        <br><br><p>Value: <span id="q12Display"></span></p>
+      </div>
 
-		<div class="title">
-			<i class="dropdown icon"></i>
-			STEP 2. Work - Life Balance
-  		</div>
-		
-		<div class="content">
-			<!-- q2-1 -->
-			<p> Q. How far (in miles) are you from your job ?</p>
-				<div class="ui segment">
-    			<div class="ui range" id="miles"></div>
-    			<br>
-    			<p>Value: <span id="milesDisplay"></span></p>
-  				</div><br>
-			<!-- q2-2 -->
-			<div class="ui form">
-  			<div class="grouped fields">
-    		<label> Q. Do you work overtime ? </label><br>
-    			<div class="field">
-      			<div class="ui radio checkbox">
-        		<input type="radio" name="overtime">
-        		<label>Yes</label>
-      			</div>
-    			</div>
+   <!-- q13-->  
+      <h4> Q. How many employee training sessions did your employer offer this year ? (0-6) </h4>
+      <div id="slidecontainer">
+        <input type="range" min="0" max="6" value="0" class="slider" id="q13"><br>
+        <br><br><p>Value: <span id="q13Display"></span></p>
+      </div>
 
-    			<div class="field">
-      			<div class="ui radio checkbox">
-        		<input type="radio" name="overtime">
-        		<label>No</label>
-      			</div>
-    			</div><br>
-            
-			</div>
-			</div>
-			<!-- q2-3 -->
-			<p> Q. How many days of work have you missed?</p><br>
-    			<div class="ui segment">
-			    <div class="ui range" id="missing"></div><br>
-    		<p>Value: <span id="missingDisplay"></span></p>
-  				</div>
-			<!-- q2-4 -->
- 			<div class="ui form">
- 			<div class="grouped fields">
-    		<label> Q. How would you rate your overall work-life balance with your current job ? </label><br>
-  				<div class="field">
-      			<div class="ui radio checkbox">
-        		<input type="radio" name="balance">
-        		<label>1 (Lowest)</label>
- 				</div>
-    			</div>
+   <!-- q14-->  
+      <h4> Q. How many years has it been since your last promotion ? (1-20) </h4>
+      <div id="slidecontainer">
+        <input type="range" min="1" max="20" value="1" class="slider" id="q14"><br>
+        <br><br><p>Value: <span id="q14Display"></span></p>
+      </div>
 
-   				<div class="field">
-      			<div class="ui radio checkbox">
-        		<input type="radio" name="balance">
-        		<label>2</label>
-      			</div>
-    			</div>
+    <!-- q15-->   
+      <h4>Q. Did you get performance evaluation last year ? </h4>
+      <select class="chosen-select" id="q15">
+        <option value="select">Select One Option</option>
+        <option value="1"> Yes </option>
+        <option value="2"> No </option>
+      </select>
 
-    			<div class="field">
-     			<div class="ui radio checkbox">
-        		<input type="radio" name="balance" checked="checked">
-        		<label>3</label>
-      			</div>
-    			</div>
+    <!-- q16 -->
+      <h4> Q. How much do you make an hour ? </h4>
+      $   <input type="number" name="quantity" id="q16" min="1" max="9999"><br>
 
-        		<div class="field">
-      			<div class="ui radio checkbox">
-        		<input type="radio" name="balance" checked="checked">
-        		<label>4</label>
-      			</div>
-    			</div>
+    </div>
+<!-- STEP4 -->
+    <div class="title">
+      <i class="dropdown icon"></i> STEP 4. Culture
+    </div>
 
-    			<div class="field">
-      			<div class="ui radio checkbox">
-        		<input type="radio" name="balance" checked="checked">
-        		<label>5 (Highest)</label>
-      			</div>
-    			</div>
-        	</div>
-        	</div><br>
-		</div>
-		<div class="title">
-			<i class="dropdown icon"></i>
-    		STEP 3. Benefits (Including Payment)
-  		</div>
+    <div class="content">
 
-  		<div class="content">
-			<!-- q3-1 -->  			
-  			<div class="ui form">
-  			<div class="grouped fields">
-    		<label> Q. Do you have stock options or a matched 401k ?</label><br>
-    
-    			<div class="field">
-      			<div class="ui radio checkbox">
-        		<input type="radio" name="options">
-        		<label>No</label>
-      			</div>
-    			</div>
+   <!-- q17-->  
+      <h4> Q. Do you like your work environment? </h4>
+      <select class="chosen-select" id="q17">
+        <option value="select">Select One Option</option>
+        <option value="1"> 1 (No) </option>
+        <option value="2"> 2 (Not Really)</option>
+        <option value="3"> 3 (Kinda)</option>
+        <option value="4"> 4 (Yes)</option>
+      </select>
 
-    			<div class="field">
-      			<div class="ui radio checkbox">
-        		<input type="radio" name="options">
-        		<label>Stock Options/equity</label>
-      			</div>
-    			</div>
+   <!-- q18-->  
+      <h4> Q. Do you get along with your co-worker ? </h4>
+      <select class="chosen-select" id="q18">
+        <option value="select">Select One Option</option>
+        <option value="1"> 1 (Never) </option>
+        <option value="2"> 2 </option>
+        <option value="3"> 3 </option>
+        <option value="4"> 4 </option>
+        <option value="5"> 5 (All the time) </option>
+      </select>
 
-        		<div class="field">
-      			<div class="ui radio checkbox">
-        		<input type="radio" name="options">
-        		<label>401k</label>
-      			</div>
-    			</div>
+   <!-- q19-->  
+      <h4> Q. How many years have you been with your current company ? (0-50) </h4>
+      <div id="slidecontainer">
+        <input type="range" min="0" max="50" value="0" class="slider" id="q19">
+        <br><br><p>Value: <span id="q19Display"></span></p>
+      </div>      
+   <!-- q20-->  
+      <h4> Q. How many years have you been with your current manager ? (0-50) </h4>
+      <div id="slidecontainer">
+        <input type="range" min="0" max="50" value="0" class="slider" id="q20">
+        <br><br><p>Value: <span id="q20Display"></span></p>
+      </div>   
+   <!-- q21-->  
+      <h4> Q. How many jobs have you had in last 5 years ? (1-20) </h4>
+      <div id="slidecontainer">
+        <input type="range" min="1" max="20" value="1" class="slider" id="q21">
+        <br><br><p>Value: <span id="q21Display"></span></p>
+      </div>   
 
-        		<div class="field">
-      			<div class="ui radio checkbox">
-        		<input type="radio" name="options">
-        		<label>Both</label>
-      			</div>
-    			</div>         
-			</div>
-			</div><br>
-			<!-- q3-2 -->  			
-  			<p>Q. What was the percentage of your last raise ? (1-50) </p>
-      			<div class="ui segment">
-    			<div class="ui range" id="raise"></div><br>
-    			<p>Value: <span id="raiseDisplay"></span></p>
-  				</div>
-
-			<!-- q3-3 -->  	
-  			<p>Q. How many employee training sessions did your employer offer this year ? (0-6)</p><br>
-      			<div class="ui segment">
-    			<div class="ui range" id="training"></div><br>
-    			<p>Value: <span id="trainingDisplay"></span></p>
-  				</div>
-			<!-- q3-4 --> 
-			<p>Q. How many years has it been since your last promotion ? (1-20)</p><br>
-      			<div class="ui segment">
-    			<div class="ui range" id="promotion"></div><br>
-    			<p>Value: <span id="promotionDisplay"></span></p>
-    			</div>
-			<!-- q3-5 --> 
-           	<div class="ui form">
-  			<div class="grouped fields">
-    		<label>Q. Did you get performance evaluation last year ?</label>
-   				<div class="field">
-   				<div class="ui radio checkbox">
-       			<input type="radio" name="evaluation" checked="checked">
-      			<label>Yes</label>
-  				</div>
-  				</div>
-
-	    		<div class="field">
-	      		<div class="ui radio checkbox">
-	       		<input type="radio" name="evaluation">
-	       		<label>No</label>
-	   			</div>
-	  			</div>            
-			</div>
-			</div>
-			<!-- q3-6 --> 
-			<p> Q. How much do you make an hour ? </p>
-			<div class="ui input" id="salary"> <input type="text"> </div><br>
-			<!-- q3-7 --> 
-			<div class="ui form">
-	  		<div class="grouped fields">
-	    	<label>Q. Is your job involvement on par with your pay? </label><br>
-	    		<div class="field">
-	      		<div class="ui radio checkbox">
-	        	<input type="radio" name="getalong">
-	        	<label>1 (No)</label>
-	      		</div>
-	    		</div>
-
-	    		<div class="field">
-	      		<div class="ui radio checkbox">
-	        	<input type="radio" name="getalong">
-	        	<label>2 (Not Really) </label>
-	      		</div>
-	    		</div>
-
-	        	<div class="field">
-	      		<div class="ui radio checkbox">
-	        	<input type="radio" name="getalong">
-	        	<label>3 (Kinda) </label>
-	      		</div>
-	    		</div>
-	        
-	        	<div class="field">
-	      		<div class="ui radio checkbox">
-	        	<input type="radio" name="getalong">
-	        	<label>4 (Yes)</label>
-	      		</div>
-	    		</div><br>
-
-			</div>
-			</div>
-			</div>
-
-	<div class="title">
-    	<i class="dropdown icon"></i>
-    	STEP 4. Culuture 
-  	</div>
-
-  	<div class="content">
-			<!-- q4-1 --> 
-        <div class="ui form">
-  		<div class="grouped fields">
-    	<label>Q. Do you get along with your co-worker ?</label><br>
-    		<div class="field">
-      		<div class="ui radio checkbox">
-        	<input type="radio" name="getalong">
-        	<label>1(Never)</label>
-      		</div>
-    		</div>
-
-    		<div class="field">
-      		<div class="ui radio checkbox">
-        	<input type="radio" name="getalong">
-        	<label>2</label>
-      		</div>
-    		</div>
-
-        	<div class="field">
-      		<div class="ui radio checkbox">
-        	<input type="radio" name="getalong">
-        	<label>3</label>
-      		</div>
-    		</div>
-        
-        	<div class="field">
-      		<div class="ui radio checkbox">
-        	<input type="radio" name="getalong">
-        	<label>4</label>
-      		</div>
-    		</div>
-
-        	<div class="field">
-      		<div class="ui radio checkbox">
-        	<input type="radio" name="getalong">
-        	<label>5(All the time)</label>
-      		</div>
-    		</div><br>            
-		</div>
-		</div>
-			<!-- q4-2 --> 
-		<p>Q. How many years have you been with your current company ? (0-50)</p>
-      		<div class="ui segment">
-    		<div class="ui range" id="workyear"></div>
-    		<p>Value: <span id="workyearDisplay"></span></p>
-  			</div>
-			<!-- q4-3 --> 
-    	<p>Q. How many years have you been with your current manager ? (0-50)</p>
-      		<div class="ui segment">
-    		<div class="ui range" id="manager"></div>
-    		<p>Value: <span id="managerDisplay"></span></p>
-  			</div>
-			
-			<!-- q4-4 --> 
-    	<p> Q. How many jobs have you had in last 5 years ? (1-20) </p>
-    	<div class="ui segment">
-    	<div class="ui range" id="jobs"></div>
-   		<p>Value: <span id="jobsDisplay"></span></p>
-  		</div>
-
-
-	</div>
+    </div>
 
 
 
+  </div>
 
-	</div>
-	<br>
-	<button class=" positive fluid ui button">S U B M I T</button>
+      <br> <button class="fluid positive ui button" id="submit">S U B M I T</button><br>
 
+<footer class="footer">
+  <h6>© 2017 Georgia Tech Coding Bootcamp</h6>
+</footer>
 
 </div>
 
-	<footer class="footer">
-    	<p>© 2017 Georgia Tech Coding Bootcamp</p>
-
-	</footer>
 
 
+<script type="text/javascript">
+$(document).ready(function () {
+  $(".accordion").accordion();
 
-</body>
-</html>
+});   
+
+// q7
+var slider = document.getElementById("q7");
+var output = document.getElementById("q7Display");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+// q9
+var slider = document.getElementById("q9");
+document.getElementById("q9Display").innerHTML = slider.value;
+
+slider.oninput = function() {
+  document.getElementById("q9Display").innerHTML = this.value;
+}
+// q12
+var slider = document.getElementById("q12");
+document.getElementById("q12Display").innerHTML = slider.value;
+
+slider.oninput = function() {
+  document.getElementById("q12Display").innerHTML = this.value;
+}
+// q13
+var slider = document.getElementById("q13");
+document.getElementById("q13Display").innerHTML = slider.value;
+
+slider.oninput = function() {
+  document.getElementById("q13Display").innerHTML = this.value;
+}
+// q14
+var slider = document.getElementById("q14");
+document.getElementById("q14Display").innerHTML = slider.value;
+
+slider.oninput = function() {
+  document.getElementById("q14Display").innerHTML = this.value;
+}
+// q19
+var slider = document.getElementById("q19");
+document.getElementById("q19Display").innerHTML = slider.value;
+
+slider.oninput = function() {
+  document.getElementById("q19Display").innerHTML = this.value;
+}
+// q20
+var slider = document.getElementById("q20");
+document.getElementById("q20Display").innerHTML = slider.value;
+
+slider.oninput = function() {
+  document.getElementById("q20Display").innerHTML = this.value;
+}
+// q21
+var slider = document.getElementById("q21");
+document.getElementById("q21Display").innerHTML = slider.value;
+
+slider.oninput = function() {
+  document.getElementById("q21Display").innerHTML = this.value;
+}
+
+
+
+$("#submit").on("click", function(){
+  event.preventDefault();
+
+  var user = {
+
+    scores: [ $("#q1").val(),$("#q2").val(),$("#q3").val(),$("#q4").val(),$("#q5").val(),$("#q6").val(),$("#q7").val(),$("#q8").val(),$("#q9").val(),$("#q10").val(),$("#q11").val(),$("#q12").val(),$("#q13").val(),$("#q14").val(),$("#q15").val(),$("#q16").val(),$("#q17").val(),$("#q18").val(),$("#q19").val(),$("#q20").val(),$("#q21").val()
+    ]
+  }
+
+  var currentURL = window.location.origin;
+
+  $.post(currentURL+"/results", user, function(data){
+
+
+  })
+})
+
+
+
+</script>
+
+</body></html>
