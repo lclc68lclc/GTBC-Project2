@@ -2,6 +2,7 @@
 var db = require("../models");
 
 function compareUserResponses(UserArray, userResults) {
+    console.log("The UserArray is: " + UserArray);
     var dataQueryObject;
     db.glassdoor_comments.findAll({
         where:{
@@ -34,7 +35,8 @@ function compareUserResponses(UserArray, userResults) {
             }
 
             else{
-                if (UserArray[answersNeeded[index]] >= dataQueryObject[key]) {
+                var questionNumber = answersNeeded[index];
+                if (UserArray[questionNumber] >= dataQueryObject[key]) {
                     pointsEarned++;
                 }
                 index++;
