@@ -5,15 +5,15 @@ module.exports = function(app) {
 
     //Get the model from the db
     app.get("/api/glassdoor_data", function(req, res) {
-        db.Glassdoor_comments.findAll({ limit: 100 })
-            .then(function(dbGlassdoor_comments) {
-                res.json(dbGlassdoor_comments);
+        db.glassdoor_comments.findAll({ limit: 100 })
+            .then(function(dbglassdoor_comments) {
+                res.json(dbglassdoor_comments);
             });
     });
 
     // POST route for posting a quiz to the db
     app.post("/api/", function(req, res) {
-        db.Glassdoor_comments.create({
+        db.glassdoor_comments.create({
                 Age: req.body[0],
                 Gender: req.body[1],
                 MaritalStatus: req.body[2],
@@ -37,8 +37,8 @@ module.exports = function(app) {
                 YearsWithCurrManager: req.body[20],
                 NumCompaniesWorked: req.body[21]
             })
-            .then(function(dbGlassdoor_comments) {
-                res.json(dbGlassdoor_comments);
+            .then(function(dbglassdoor_comments) {
+                res.json(dbglassdoor_comments);
             });
     });
 };
