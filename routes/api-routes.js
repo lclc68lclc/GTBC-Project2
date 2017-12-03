@@ -11,8 +11,13 @@ module.exports = function(app) {
             });
     });
 
+    app.get("/api/results_data", function(req, res) {
+        var resultsObj = compareUserResponses(req.body.scores);
+        console.log(resultsObj);
+    });
+
     // POST route for posting a quiz to the db
-    app.post("/api/", function(req, res) {
+    app.post("/api/results_data", function(req, res) {
         //if the resultsObj works, the obj below will have to index
         //in this format: req.body.scores[i]
         console.log("This is the request from posting: " + req.body);
