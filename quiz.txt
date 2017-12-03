@@ -1,0 +1,25 @@
+STEP1 =============================================================================
+var q1 Q. What is your age ? number input
+var q2 Q. How do you consider yourself to be ? multiple
+var q3 Q. What is your martial status ? multiple
+var q4 Q. What is the highest degress or level of school you have compelete ? multiple
+var q5 Q. Do you work Full-time or Part-time ? multiple
+var q6 Q. How often do you travel for work ? multiple
+STEP2 =============================================================================
+var q7 Q. How far (in miles) are you from your job ? (1-50mile) slider
+var q8 Q. Do you work overtime ? multiple
+var q9 Q. How many days of work have you missed? (0-365) slider
+var q10 Q. How would you rate your overall work-life balance with your current job ? multiple
+STEP3 =============================================================================
+var q11 Q. Do you have stock options or a matched 401k ? multiple
+var q12 Q. What was the percentage of your last raise ? (1-50) slider
+var q13 Q. How many employee training sessions did your employer offer this year ? (0-6) slider
+var q14 Q. How many years has it been since your last promotion ? (1-20) slider
+var q15 Q. Did you get performance evaluation last year ? multiple
+var q16 Q. How much do you make an hour ?  number input
+STEP4 =============================================================================
+var q17 Q. Do you like your work environment? multiple
+var q18 Q. Do you get along with your co-worker ? multiple
+var q19 Q. How many years have you been with your current company ? slider
+var q20 Q. How many years have you been with your current manager ? slider
+var q21 Q. How many jobs have you had in last 5 years ? (1-20) slider
