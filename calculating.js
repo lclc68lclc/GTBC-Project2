@@ -2,6 +2,7 @@
 var db = require("./models");
 
 function compareUserResponses(UserArray, userResults) {
+    console.log("The UserArray is: " + UserArray);
     var dataQueryObject;
     db.glassdoor_comments.findAll({
         where: {
@@ -31,9 +32,15 @@ function compareUserResponses(UserArray, userResults) {
             if (key === "Age" || key === "Gender" || key === "MaritalStatus" || key === "OverTime" ||
                 key === "Education" || key === "StandardHours" || key === "BusinessTravel") {
 
+<<<<<<< HEAD
                 var doNothing;
             } else {
                 if (UserArray[answersNeeded[index]] >= dataQueryObject[key]) {
+=======
+            else{
+                var questionNumber = answersNeeded[index];
+                if (UserArray[questionNumber] >= dataQueryObject[key]) {
+>>>>>>> d8e6870e5e5805938e6326c4ae71c42aae6c51a0
                     pointsEarned++;
                 }
                 index++;

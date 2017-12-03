@@ -17,7 +17,7 @@ module.exports = function(app) {
     });
 
     app.get("/api/results_data", function(req, res) {
-        var resultsObj = compareUserResponses(req.body.scores);
+        var resultsObj = compareUserResponses(req.body.scores,userResults);
         console.log(resultsObj);
     });
 
