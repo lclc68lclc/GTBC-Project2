@@ -17,7 +17,7 @@ module.exports = function(app) {
     });
 
     app.get("/api/results_data", function(req, res) {
-        var resultsObj = compareUserResponses(req.body.scores,userResults);
+        var resultsObj = compareUserResponses(req.body.scores);
         console.log(resultsObj);
     });
 
@@ -25,9 +25,9 @@ module.exports = function(app) {
     app.post("/api/results_data", function(req, res) {
         //if the resultsObj works, the obj below will have to index
         //in this format: req.body.scores[i]
-        console.log("This is the request from posting: " + req.body);
-        var resultsObj = compareUserResponses(req.body.scores, userResults);
-        console.log(resultsObj);
+        //console.log("This is the request from posting: " + req.body);
+        //var resultsObj = compareUserResponses(req.body.scores, userResults);
+        //console.log(resultsObj);
         db.glassdoor_comments.create({
                 Age: req.body[0],
                 Gender: req.body[1],
