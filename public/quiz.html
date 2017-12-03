@@ -423,8 +423,6 @@ $("#submit").on("click", function(){
   }
 
   var currentURL = window.location.origin;
-
-  var resultsObj = compareUserResponses(user.scores, userResults);
   
   $.post(currentURL+"/results", user, function(data){
 

@@ -1,5 +1,5 @@
 var db = require("../models");
-
+var compareUserResponses = require('../calculating.js');
 
 module.exports = function(app) {
 
@@ -13,6 +13,11 @@ module.exports = function(app) {
 
     // POST route for posting a quiz to the db
     app.post("/api/", function(req, res) {
+        //if the resultsObj works, the obj below will have to index
+        //in this format: req.body.scores[i]
+        console.log("This is the request from posting: " + req.body);
+        var resultsObj = compareUserResponses(req.body.scores, userResults);
+        console.log(resultsObj);
         db.glassdoor_comments.create({
                 Age: req.body[0],
                 Gender: req.body[1],
