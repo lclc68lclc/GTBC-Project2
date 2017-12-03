@@ -15,30 +15,41 @@
 	//app should handle data parsing	
 	app.use(bodyParser.urlencoded({extended:false}));
 	app.use(bodyParser.json());
-	// app.use(bodyParser.text());
+	app.use(bodyParser.text());
 	app.use(bodyParser.json({type:"application/vnd.api+json"}));
 
 	 // Static directory
-	app.use(express.static("public"));
+	app.use(express.static("./public"));
 //___________________________________________
 
 
 
 //________________ROUTES _______________
 
-	//require our routes from different directories
-	require("./routes/html-routes.js")(app);
+	// //require our routes from different directories
+	// require("./routes/html-routes.js")(app);
 
 	// require("./routes/api-routes.js")(app);
+
+	//require our routes from different directories
+	var htmlRoutes = require("./routes/html-routes.js");
+	app.use("/",htmlRoutes,function(req,res){
+		console.log(req + " " + res);
+	});
+
+	var apiRoutes = require("./routes/api-routes.js");
+	app.use("/",apiRoutes,function(req,res){
+		console.log(req + " " + res);
+	});
 //___________________________________________
 
 
 
 //_____________Start the Server______________
-db.sequelize.sync().then(function(){
-	app.listen(PORT,function(){
-		console.log("Get You Life is ready to analyze your work life! (Port: " + PORT+" )");
+	db.sequelize.sync().then(function(){
+		app.listen(PORT,function(){
+			console.log("Get Your Life is ready to analyze your work life! (Port: " + PORT+" )");
+		});
 	});
-});
 //___________________________________________
 

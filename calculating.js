@@ -2,7 +2,14 @@
 
 function compareUserResponses(UserArray, callback) {
 
-    var dataQueryObject = 'SELECT AVG(DistanceFromHome), AVG(AbsentHours), AVG(WorkLifeBalance), AVG(StockOptions), AVG(PercentSalaryHike), AVG(TrainingTimesLastYear), AVG(YearsSinceLastPromotion), AVG(PerformanceRating), AVG(HourlyRate), AVG(JobInvolvement), AVG(EnvironmentSatisfaction), AVG(RelationshipSatisfaction), AVG(YearsAtCompany), AVG(YearsWithCurrManager), AVG(NumCompaniesWorked)  FROM (SELECT * from glassdoor_comments WHERE MaritalStatus = ? AND Education = ? AND StandardHours = 80 AND BusinessTravel= ?) AS t; //this will be the result from the query
+    var dataQueryObject = 'SELECT AVG(DistanceFromHome), AVG(AbsentHours),' + 
+    'AVG(WorkLifeBalance), AVG(StockOptions), AVG(PercentSalaryHike), ' +
+    'AVG(TrainingTimesLastYear), AVG(YearsSinceLastPromotion), AVG(PerformanceRating), ' +
+    'AVG(HourlyRate), AVG(JobInvolvement), AVG(EnvironmentSatisfaction), ' +
+    'AVG(RelationshipSatisfaction), AVG(YearsAtCompany), AVG(YearsWithCurrManager),' + 
+    'AVG(NumCompaniesWorked)  FROM (SELECT * from glassdoor_comments ' +
+    'WHERE MaritalStatus = ? AND Education = ? AND StandardHours = 80 AND BusinessTravel= ?)'+ 
+    'AS t'; //this will be the result from the query
 
     var pointsEarned = 0;
 
