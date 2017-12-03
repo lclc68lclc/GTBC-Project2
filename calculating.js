@@ -1,17 +1,18 @@
 //____________This is for the math_________________
-var db = require("../models");
+var db = require("./models");
 
 function compareUserResponses(UserArray, userResults) {
     var dataQueryObject;
     db.glassdoor_comments.findAll({
-        where:{
-            MaritalStatus:UserArray[2],
+        where: {
+            MaritalStatus: UserArray[2],
             Education: UserArray[3],
             StandardHours: 80,
-            BusinessTravel: UserArray[5]}
-    }).then(function(results){
+            BusinessTravel: UserArray[5]
+        }
+    }).then(function(results) {
         dataQueryObject = results;
-    
+
         // var dataQueryObject = 'SELECT AVG(DistanceFromHome), AVG(AbsentHours),' + 
         // 'AVG(WorkLifeBalance), AVG(StockOptions), AVG(PercentSalaryHike), ' +
         // 'AVG(TrainingTimesLastYear), AVG(YearsSinceLastPromotion), AVG(PerformanceRating), ' +
@@ -23,17 +24,15 @@ function compareUserResponses(UserArray, userResults) {
 
         var pointsEarned = 0;
         //this is an array of indices of the answers we need to compare to the query above
-        var answersNeeded = [6,8,9,10,11,12,13,14,15,16,17,18,19,20,21];
+        var answersNeeded = [6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
         var index = 0;
-        
-        for (var key in dataQueryObject) {
-            if (key === "Age" || key === "Gender" ||key === "MaritalStatus" || key === "OverTime"
-                ||key === "Education" || key === "StandardHours" ||key === "BusinessTravel" ||){
-                
-                var doNothing;
-            }
 
-            else{
+        for (var key in dataQueryObject) {
+            if (key === "Age" || key === "Gender" || key === "MaritalStatus" || key === "OverTime" ||
+                key === "Education" || key === "StandardHours" || key === "BusinessTravel") {
+
+                var doNothing;
+            } else {
                 if (UserArray[answersNeeded[index]] >= dataQueryObject[key]) {
                     pointsEarned++;
                 }
@@ -54,8 +53,7 @@ function compareUserResponses(UserArray, userResults) {
                 Link3: "https://www.buzzfeed.com/kristinchirico/12-of-the-absolute-best-ways-you-can-quit-your-job?utm_term=.eoZ1elmMR#.rlBVy0NBE"
 
             };
-        } 
-        else if (percentToQuit > 50 && percentToQuit <= 80) {
+        } else if (percentToQuit > 50 && percentToQuit <= 80) {
             //give the user the "You're Doing Ok. Learn/Improve your Skills"
             userResults = {
                 UserShould: "We believe you are doing OK in your position and you should keep your job!",
@@ -66,8 +64,7 @@ function compareUserResponses(UserArray, userResults) {
                 Link3: "https://www.lynda.com/"
 
             };
-        } 
-        else if (percentToQuit > 80) {
+        } else if (percentToQuit > 80) {
             // give the user the "You're Doing Great! Take a vacation!"
             userResults = {
                 UserShould: "You are currently doing GREAT! Let's take a vacation! ",

@@ -5,7 +5,12 @@ module.exports = function(app) {
 
     //Get the model from the db
     app.get("/api/glassdoor_data", function(req, res) {
-        db.glassdoor_comments.findAll({ limit: 100 })
+        db.glassdoor_comments.findAll({
+                limit: 100,
+                order: [
+                    ['id', 'DESC']
+                ]
+            })
             .then(function(dbglassdoor_comments) {
                 res.json(dbglassdoor_comments);
             });
