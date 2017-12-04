@@ -17,8 +17,9 @@ module.exports = function(app) {
     });
 
     app.get("/api/results_data", function(req, res) {
-        var resultsObj = compareUserResponses(req.body.scores);
-        console.log(resultsObj);
+        console.log(req.body);
+        //var resultsObj = compareUserResponses(req.body);
+        //console.log(resultsObj);
     });
 
     // POST route for posting a quiz to the db
