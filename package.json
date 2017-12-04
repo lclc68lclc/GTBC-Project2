@@ -26,6 +26,8 @@
     "express-session": "^1.15.6",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.1",
+    "nodemailer": "^4.4.0",
+    "nodemailer-smtp-pool": "^2.8.3",
     "sequelize": "^4.22.8"
   }
 }
