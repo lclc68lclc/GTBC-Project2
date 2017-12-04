@@ -29,11 +29,13 @@ function compareUserResponses(UserArray, userResults) {
         var index = 0;
 
         for (var key in dataQueryObject) {
-            if (key === "Age" || key === "Gender" || key === "MaritalStatus" || key === "OverTime" ||
-                key === "Education" || key === "StandardHours" || key === "BusinessTravel") {
 
+            if (key === "Age" || key === "Gender" ||key === "MaritalStatus" || key === "OverTime"
+                ||key === "Education" || key === "StandardHours" ||key === "BusinessTravel" ){
+                
                 var doNothing;
-            } else {
+            }
+else {
                 var questionNumber = answersNeeded[index];
                 if (UserArray[questionNumber] >= dataQueryObject[key]) {
                     pointsEarned++;
@@ -46,8 +48,9 @@ function compareUserResponses(UserArray, userResults) {
 
         if (percentToQuit <= 50) {
             //give the user the "You Need To Quit Modal/Page"
-            userResults = {
-                UserShould: "We believe you are not satisfied with your job and you should QUIT!",
+            var objWithLinks = {
+                UserShould: "Quit",
+                Title:"We believe you are not satisfied with your job and you should QUIT!",
                 Description: "Below are some useful resources:",
                 TopLink: "http://thecorporatetea.com/wp-content/uploads/2016/07/quit-job-check-mark-white-paper-39727680.jpg",
                 Link1: "https://www.monster.com/career-advice/article/resignation-letter-sample",
@@ -57,8 +60,9 @@ function compareUserResponses(UserArray, userResults) {
             };
         } else if (percentToQuit > 50 && percentToQuit <= 80) {
             //give the user the "You're Doing Ok. Learn/Improve your Skills"
-            userResults = {
-                UserShould: "We believe you are doing OK in your position and you should keep your job!",
+            var objWithLinks = {
+                UserShould:"Improve",
+                Title: "We believe you are doing OK in your position and you should keep your job!",
                 Description: "Below are links to help enhance your current work experience",
                 TopLink: "https://www.pickthebrain.com/blog/wp-content/uploads/2015/09/Screen-Shot-2015-09-29-at-11.27.02-PM.png",
                 Link1: "https://www.forbes.com/sites/davidkwilliams/2016/07/06/12-ways-to-improve-work-life-balance-beginning-today/#2480be2364ef",
@@ -68,8 +72,9 @@ function compareUserResponses(UserArray, userResults) {
             };
         } else if (percentToQuit > 80) {
             // give the user the "You're Doing Great! Take a vacation!"
-            userResults = {
-                UserShould: "You are currently doing GREAT! Let's take a vacation! ",
+            var objWithLinks = {
+                UserShould: "Vaca",
+                Title:"You are currently doing GREAT! Let's take a vacation! ",
                 Description: "Below are some useful trip planning resources",
                 TopLink: "https://www.quickbase.com/blog/wp-content/uploads/sites/2/2015/06/How-to-Get-Employees-to-Take-Vacation-%E2%80%93-and-Why-You-Should.jpg", //a file to request time off
                 Link1: "https://www.kayak.com/explore/",
@@ -78,7 +83,7 @@ function compareUserResponses(UserArray, userResults) {
 
             };
         };
-        return userResults;
+        userResults(objWithLinks);
     });
 };
 

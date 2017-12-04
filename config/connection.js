@@ -11,8 +11,8 @@
 	var connection = mysql.createConnection({
 		host:"localhost",
 		user:"root",
-		password: "",
-		database: ""
+		password: "185454",
+		database: "comparison_data_db"
 	});	
 //____________________________________________________________
 
