@@ -459,7 +459,7 @@
             console.log(user.scores);
             var currentURL = window.location.origin;
 
-<<<<<<< HEAD
+
             $.post(currentURL + "/api/results_data", user, function(data) {
 
                 // Grab the result from the AJAX post so that the best match's name and photo are displayed.
@@ -471,9 +471,9 @@
                 $("#link3").wrap("<a href=" + data.Link3 + "/>");
 
                 $(".ui.basic.active.modal").modal({blurring:true}).modal("toggle");
-=======
-            $.post(currentURL + "/api/results_data", user.scores, function(data) {
->>>>>>> 1e733c44c194930ce702b99654d0f56b331d586a
+
+
+              $.post(currentURL + "/api/results_data", user.scores, function(data) {
 
             })
         })

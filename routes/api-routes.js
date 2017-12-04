@@ -26,7 +26,7 @@ module.exports = function(app) {
     });
 
     app.get("/api/results_data", function(req, res) {
-<<<<<<< HEAD
+
         // var resultsObj = compareUserResponses(req.body, resultsObj);
         // console.log(resultsObj);
         db.glassdoor_comments.findAll({ 
@@ -37,29 +37,21 @@ module.exports = function(app) {
         .then(function(results) {
             res.json(results);
         });
-=======
+
         console.log(req.body);
         //var resultsObj = compareUserResponses(req.body);
         //console.log(resultsObj);
->>>>>>> 1e733c44c194930ce702b99654d0f56b331d586a
     });
 
     // POST route for posting a quiz to the db
     app.post("/api/results_data", function(req, res) {
-<<<<<<< HEAD
         
         var resultsObj;
         compareUserResponses(req.body["scores[]"], function(cb){
             resultsObj = cb;
 
         });
-=======
-        //if the resultsObj works, the obj below will have to index
-        //in this format: req.body.scores[i]
-        //console.log("This is the request from posting: " + req.body);
-        //var resultsObj = compareUserResponses(req.body.scores, userResults);
-        //console.log(resultsObj);
->>>>>>> 1e733c44c194930ce702b99654d0f56b331d586a
+
         db.glassdoor_comments.create({
                 Age: req.body["scores[]"][0],
                 Gender: req.body["scores[]"][1],

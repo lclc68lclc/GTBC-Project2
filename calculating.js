@@ -29,20 +29,14 @@ function compareUserResponses(UserArray, userResults) {
         var index = 0;
 
         for (var key in dataQueryObject) {
-<<<<<<< HEAD
-            if (key === "Age" || key === "Gender" ||key === "MaritalStatus" || key === "OverTime"
-                ||key === "Education" || key === "StandardHours" ||key === "BusinessTravel" ){
-                
-                var doNothing;
-            }
-=======
+
             if (key === "Age" || key === "Gender" || key === "MaritalStatus" || key === "OverTime" ||
                 key === "Education" || key === "StandardHours" || key === "BusinessTravel") {
->>>>>>> 1e733c44c194930ce702b99654d0f56b331d586a
 
                 var doNothing;
-            } else {
-                var questionNumber = answersNeeded[index];
+            } 
+            else {
+               var questionNumber = answersNeeded[index];
                 if (UserArray[questionNumber] >= dataQueryObject[key]) {
                     pointsEarned++;
                 }
