@@ -14,7 +14,12 @@ module.exports = function(app) {
 
     //Get the model from the db
     app.get("/api/glassdoor_data", function(req, res) {
-        db.glassdoor_comments.findAll({ limit: 100 })
+        db.glassdoor_comments.findAll({
+                limit: 100,
+                order: [
+                    ['id', 'DESC']
+                ]
+            })
             .then(function(dbglassdoor_comments) {
                 res.json(dbglassdoor_comments);
             });
@@ -31,6 +36,9 @@ module.exports = function(app) {
         .then(function(results) {
             res.json(results);
         });
+        console.log(req.body);
+        //var resultsObj = compareUserResponses(req.body);
+        //console.log(resultsObj);
     });
 
     // POST route for posting a quiz to the db
@@ -41,6 +49,11 @@ module.exports = function(app) {
             resultsObj = cb;
 
         });
+        //if the resultsObj works, the obj below will have to index
+        //in this format: req.body.scores[i]
+        //console.log("This is the request from posting: " + req.body);
+        //var resultsObj = compareUserResponses(req.body.scores, userResults);
+        //console.log(resultsObj);
         db.glassdoor_comments.create({
                 Age: req.body["scores[]"][0],
                 Gender: req.body["scores[]"][1],

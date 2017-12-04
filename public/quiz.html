@@ -148,47 +148,47 @@
             <div class="active content">
                 <!-- q1 -->
                 <h4> Q. What is your age ? </h4>
-                <input type="number" name="quantity" id="q1" min="10" max="100">
+                <input type="number" name="age" id="q1" min="10" max="100">
                 <!-- q2-->
                 <h4> Q. How do you consider yourself to be ? </h4>
-                <select class="chosen-select" id="q2">
+                <select class="chosen-select" id="q2" name="gender">
         <option value="select">Select One Option</option>
-        <option value="1"> Male</option>
-        <option value="2"> Female</option>
-        <option value="3"> Non-Binary</option>
+        <option value="Male"> Male</option>
+        <option value="Female"> Female</option>
+        <option value="Other"> Non-Binary</option>
       </select>
                 <!-- q3-->
                 <h4>Q. What is your martial status ?</h4>
                 <select class="chosen-select" id="q3">
         <option value="select">Select One Option</option>
-        <option value="1"> Married</option>
-        <option value="2"> Single</option>
-        <option value="3"> Divorced</option>
+        <option value="Married"> Married</option>
+        <option value="Single"> Single</option>
+        <option value="Divorced"> Divorced</option>
       </select>
                 <!-- q4-->
                 <h4>Q. What is the highest degress or level of school you have compelete ?</h4>
                 <select class="chosen-select" id="q4">
         <option value="select">Select One Option</option>
-        <option value="1"> High School</option>
-        <option value="2"> Some College</option>
-        <option value="3"> Bachelor</option>
-        <option value="4"> Master</option>
-        <option value="5"> Doctorate</option>
+        <option value="High School"> High School</option>
+        <option value="Some College"> Some College</option>
+        <option value="Bachelor"> Bachelor</option>
+        <option value="Master"> Master</option>
+        <option value="Doctorate"> Doctorate</option>
       </select>
                 <!-- q5-->
                 <h4>Q. What is the highest degree or level of school you have compelete ?</h4>
                 <select class="chosen-select" id="q5">
         <option value="select">Select One Option</option>
-        <option value="1"> Full-time</option>
-        <option value="2"> Part-time</option>
+        <option value="80"> Full-time</option>
+        <option value="40"> Part-time</option>
       </select>
                 <!-- q6-->
                 <h4>Q. How often do you travel for work ?</h4>
                 <select class="chosen-select" id="q6">
         <option value="select">Select One Option</option>
-        <option value="1"> Frequently </option>
-        <option value="2"> Rarely </option>
-        <option value="3"> Not at all</option>
+        <option value="Travel_Frequently"> Frequently </option>
+        <option value="Travel_Rarely"> Rarely </option>
+        <option value="Non-Travel"> Not at all</option>
       </select>
             </div>
 
@@ -211,8 +211,8 @@
                 <h4>Q. Do you work overtime ? </h4>
                 <select class="chosen-select" id="q8">
         <option value="select">Select One Option</option>
-        <option value="1"> Yes </option>
-        <option value="2"> No </option>
+        <option value="Yes"> Yes </option>
+        <option value="No"> No </option>
       </select>
 
                 <!-- q9-->
@@ -310,11 +310,11 @@
                 <h4> Q. Do you get along with your co-worker ? </h4>
                 <select class="chosen-select" id="q18">
         <option value="select">Select One Option</option>
-        <option value="1"> 1 (Never) </option>
-        <option value="2"> 2 </option>
-        <option value="3"> 3 </option>
-        <option value="4"> 4 </option>
-        <option value="5"> 5 (All the time) </option>
+        <option value="0"> 1 (Never) </option>
+        <option value="1"> 2 </option>
+        <option value="2"> 3 </option>
+        <option value="3"> 4 </option>
+        <option value="4"> 5 (All the time) </option>
       </select>
 
                 <!-- q19-->
@@ -459,6 +459,7 @@
             console.log(user.scores);
             var currentURL = window.location.origin;
 
+
             $.post(currentURL + "/api/results_data", user, function(data) {
 
                 // Grab the result from the AJAX post so that the best match's name and photo are displayed.
@@ -470,6 +471,9 @@
                 $("#link3").wrap("<a href=" + data.Link3 + "/>");
 
                 $(".ui.basic.active.modal").modal({blurring:true}).modal("toggle");
+
+              $.post(currentURL + "/api/results_data", user.scores, function(data) {
+
 
             })
         })
