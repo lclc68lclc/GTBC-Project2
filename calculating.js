@@ -8,43 +8,61 @@ function compareUserResponses(UserArray, userResults) {
         where: {
             MaritalStatus: UserArray[2],
             Education: UserArray[3],
-            StandardHours: 80,
+            StandardHours: 80, //UserArray[4]
             BusinessTravel: UserArray[5]
+        },
+        attributes:{
+            include:[
+                [db.sequelize.fn('AVG',db.sequelize.col('DistanceFromHome')),'avgQ6'],
+                [db.sequelize.fn('AVG',db.sequelize.col('EnvironmentSatisfaction')),'avgQ16'],
+                [db.sequelize.fn('AVG',db.sequelize.col('HourlyRate')),'avgQ15'],
+                [db.sequelize.fn('AVG',db.sequelize.col('NumCompaniesWorked')),"avgQ20"],
+                [db.sequelize.fn('AVG',db.sequelize.col('PercentSalaryHike')),'avgQ11'],
+                [db.sequelize.fn('AVG',db.sequelize.col('PerformanceRating')),'avgQ14'],
+                [db.sequelize.fn('AVG',db.sequelize.col('RelationshipSatisfaction')),'avgQ17'],
+                [db.sequelize.fn('AVG',db.sequelize.col('StockOptionLevel')),'avgQ10'],
+                [db.sequelize.fn('AVG',db.sequelize.col('TrainingTimesLastYear')),'avgQ12'],
+                [db.sequelize.fn('AVG',db.sequelize.col('WorkLifeBalance')),'avgQ9'],
+                [db.sequelize.fn('AVG',db.sequelize.col('YearsAtCompany')),'avgQ18'],
+                [db.sequelize.fn('AVG',db.sequelize.col('YearsSinceLastPromotion')),'avgQ13'],
+                [db.sequelize.fn('AVG',db.sequelize.col('YearsWithCurrManager')),'avgQ19'],
+                [db.sequelize.fn('AVG',db.sequelize.col('AbsentHours')),'avgQ8']
+                
+            ]
         }
     }).then(function(results) {
         dataQueryObject = results;
+        // console.log("________________________");
+        // // console.log("DataQueryObject[0] is: " + dataQueryObject[0]);
+        // console.log("DataQueryObject[0] is: " + JSON.stringify(dataQueryObject[0],null,2));   
+        // console.log("DataQueryObject[0]['thisAvg1'] is: " + JSON.stringify(dataQueryObject[0].get("thisAvg1")));   
 
-        // var dataQueryObject = 'SELECT AVG(DistanceFromHome), AVG(AbsentHours),' + 
-        // 'AVG(WorkLifeBalance), AVG(StockOptions), AVG(PercentSalaryHike), ' +
-        // 'AVG(TrainingTimesLastYear), AVG(YearsSinceLastPromotion), AVG(PerformanceRating), ' +
-        // 'AVG(HourlyRate), AVG(JobInvolvement), AVG(EnvironmentSatisfaction), ' +
-        // 'AVG(RelationshipSatisfaction), AVG(YearsAtCompany), AVG(YearsWithCurrManager),' + 
-        // 'AVG(NumCompaniesWorked)  FROM (SELECT * from glassdoor_comments ' +
-        // 'WHERE MaritalStatus = ? AND Education = ? AND StandardHours = 80 AND BusinessTravel= ?)'+ 
-        // 'AS t'; //this will be the result from the query
+        // console.log("________________________");
 
         var pointsEarned = 0;
-        //this is an array of indices of the answers we need to compare to the query above
-        var answersNeeded = [6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
-        var index = 0;
 
-        for (var key in dataQueryObject) {
+        var quesNum = [6,16,15,20,11,14,17,10,12,9,18,13,19,8]; //Question # needed
 
-            if (key === "Age" || key === "Gender" || key === "MaritalStatus" || key === "OverTime" ||
-                key === "Education" || key === "StandardHours" || key === "BusinessTravel") {
+        for (var i = 0; i < quesNum.length; i++) {
+                var userValue = UserArray[quesNum[i]];
 
-                var doNothing;
-            } 
-            else {
-               var questionNumber = answersNeeded[index];
-                if (UserArray[questionNumber] >= dataQueryObject[key]) {
+                var currAvgValue = dataQueryObject[0].get("avgQ"+quesNum[i]);
+                if (quesNum[i] == 6||quesNum[i] == 8||quesNum[i] == 13||quesNum[i] == 18||quesNum[i] == 20){
+                    if (currAvgValue!= null && userValue <= currAvgValue) {
+                    console.log(currAvgValue);
                     pointsEarned++;
+                    }
+                }   
+                else{
+                    if (currAvgValue!= null && userValue >= currAvgValue) {
+                        console.log(currAvgValue);
+                        pointsEarned++;
+                    }
                 }
-                index++;
-            }
+
         }
 
-        var percentToQuit = Math.ceil((pointsEarned / (answersNeeded.length)) * 100);
+        var percentToQuit = Math.ceil((pointsEarned / (quesNum.length)) * 100);
 
         if (percentToQuit <= 50) {
             //give the user the "You Need To Quit Modal/Page"

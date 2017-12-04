@@ -45,36 +45,36 @@ module.exports = function(app) {
 
     // POST route for posting a quiz to the db
     app.post("/api/results_data", function(req, res) {
-        
+        // console.log('Scores[]'+ req.body["scores"])
         var resultsObj;
-        compareUserResponses(req.body["scores[]"], function(cb){
+        compareUserResponses(req.body["scores"], function(cb){
             resultsObj = cb;
-
+            // console.log(resultsObj);
         });
 
         db.glassdoor_comments.create({
-                Age: req.body["scores[]"][0],
-                Gender: req.body["scores[]"][1],
-                MaritalStatus: req.body["scores[]"][2],
-                Education: req.body["scores[]"][3],
-                StandardHours: req.body["scores[]"][4],
-                BusinessTravel: req.body["scores[]"][5],
-                DistanceFromHome: req.body["scores[]"][6],
-                OverTime: req.body["scores[]"][7],
-                AbsentHours: req.body["scores[]"][8],
-                WorkLifeBalance: req.body["scores[]"][9],
-                StockOptions: req.body["scores[]"][10],
-                PercentSalaryHike: req.body["scores[]"][11],
-                TrainingTimesLastYear: req.body["scores[]"][12],
-                YearsSinceLastPromotion: req.body["scores[]"][13],
-                PerformanceRating: req.body["scores[]"][14],
-                HourlyRate: req.body["scores[]"][15],
-                JobInvolvement: req.body["scores[]"][16],
-                EnvironmentSatisfaction: req.body["scores[]"][17],
-                RelationshipSatisfaction: req.body["scores[]"][18],
-                YearsAtCompany: req.body["scores[]"][19],
-                YearsWithCurrManager: req.body["scores[]"][20],
-                NumCompaniesWorked: req.body["scores[]"][21],
+                Age: req.body["scores"][0],
+                Gender: req.body["scores"][1],
+                MaritalStatus: req.body["scores"][2],
+                Education: req.body["scores"][3],
+                StandardHours: req.body["scores"][4],
+                BusinessTravel: req.body["scores"][5],
+                DistanceFromHome: req.body["scores"][6],
+                OverTime: req.body["scores"][7],
+                AbsentHours: req.body["scores"][8],
+                WorkLifeBalance: req.body["scores"][9],
+                StockOptions: req.body["scores"][10],
+                PercentSalaryHike: req.body["scores"][11],
+                TrainingTimesLastYear: req.body["scores"][12],
+                YearsSinceLastPromotion: req.body["scores"][13],
+                PerformanceRating: req.body["scores"][14],
+                HourlyRate: req.body["scores"][15],
+                JobInvolvement: req.body["scores"][16],
+                EnvironmentSatisfaction: req.body["scores"][17],
+                RelationshipSatisfaction: req.body["scores"][18],
+                YearsAtCompany: req.body["scores"][19],
+                YearsWithCurrManager: req.body["scores"][20],
+                NumCompaniesWorked: req.body["scores"][21],
             })
             .then(function() {
                 return res.json(resultsObj);
