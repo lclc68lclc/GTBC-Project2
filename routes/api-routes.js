@@ -1,7 +1,16 @@
 var db = require("../models");
 var compareUserResponses = require('../calculating.js');
+var express = require("express");
+var exphbs = require("express-handlebars");
+
 
 module.exports = function(app) {
+    // var hbs = exphbs.create({ /* config */ });
+     
+    // Register `hbs.engine` with the Express app. 
+    // app.engine('handlebars', hbs.engine);
+    app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+    app.set('view engine', 'handlebars');
 
     //Get the model from the db
     app.get("/api/glassdoor_data", function(req, res) {
@@ -12,43 +21,52 @@ module.exports = function(app) {
     });
 
     app.get("/api/results_data", function(req, res) {
-        var resultsObj = compareUserResponses(req.body.scores,userResults);
-        console.log(resultsObj);
+        // var resultsObj = compareUserResponses(req.body, resultsObj);
+        // console.log(resultsObj);
+        db.glassdoor_comments.findAll({ 
+            where: {
+                id:null
+            },
+            limit: 100 })
+        .then(function(results) {
+            res.json(results);
+        });
     });
 
     // POST route for posting a quiz to the db
     app.post("/api/results_data", function(req, res) {
-        //if the resultsObj works, the obj below will have to index
-        //in this format: req.body.scores[i]
-        console.log("This is the request from posting: " + req.body);
-        var resultsObj = compareUserResponses(req.body.scores, userResults);
-        console.log(resultsObj);
+        
+        var resultsObj;
+        compareUserResponses(req.body["scores[]"], function(cb){
+            resultsObj = cb;
+
+        });
         db.glassdoor_comments.create({
-                Age: req.body[0],
-                Gender: req.body[1],
-                MaritalStatus: req.body[2],
-                Education: req.body[3],
-                StandardHours: req.body[4],
-                BusinessTravel: req.body[5],
-                DistanceFromHome: req.body[6],
-                OverTime: req.body[7],
-                AbsentHours: req.body[8],
-                WorkLifeBalance: req.body[9],
-                StockOptions: req.body[10],
-                PercentSalaryHike: req.body[11],
-                TrainingTimesLastYear: req.body[12],
-                YearsSinceLastPromotion: req.body[13],
-                PerformanceRating: req.body[14],
-                HourlyRate: req.body[15],
-                JobInvolvement: req.body[16],
-                EnvironmentSatisfaction: req.body[17],
-                RelationshipSatisfaction: req.body[18],
-                YearsAtCompany: req.body[19],
-                YearsWithCurrManager: req.body[20],
-                NumCompaniesWorked: req.body[21]
+                Age: req.body["scores[]"][0],
+                Gender: req.body["scores[]"][1],
+                MaritalStatus: req.body["scores[]"][2],
+                Education: req.body["scores[]"][3],
+                StandardHours: req.body["scores[]"][4],
+                BusinessTravel: req.body["scores[]"][5],
+                DistanceFromHome: req.body["scores[]"][6],
+                OverTime: req.body["scores[]"][7],
+                AbsentHours: req.body["scores[]"][8],
+                WorkLifeBalance: req.body["scores[]"][9],
+                StockOptions: req.body["scores[]"][10],
+                PercentSalaryHike: req.body["scores[]"][11],
+                TrainingTimesLastYear: req.body["scores[]"][12],
+                YearsSinceLastPromotion: req.body["scores[]"][13],
+                PerformanceRating: req.body["scores[]"][14],
+                HourlyRate: req.body["scores[]"][15],
+                JobInvolvement: req.body["scores[]"][16],
+                EnvironmentSatisfaction: req.body["scores[]"][17],
+                RelationshipSatisfaction: req.body["scores[]"][18],
+                YearsAtCompany: req.body["scores[]"][19],
+                YearsWithCurrManager: req.body["scores[]"][20],
+                NumCompaniesWorked: req.body["scores[]"][21],
             })
-            .then(function(dbglassdoor_comments) {
-                res.json(dbglassdoor_comments);
+            .then(function() {
+                return res.json(resultsObj);
             });
     });
 };

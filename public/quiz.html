@@ -345,7 +345,7 @@
 
         </div>
 
-        <br> <button class="fluid positive ui button" id="submit">S U B M I T</button><br>
+        <br> <button class="fluid positive ui button" id="submit">S U B M I T</button><br>      
 
         <footer class="footer">
             <h6>© 2017 Georgia Tech Coding Bootcamp</h6>
@@ -353,6 +353,33 @@
 
     </div>
 
+<!--_______________MODAL____________-->        
+    <div class="ui basic active modal">
+        <i class="close icon"></i>
+
+        <div class="header">
+            <h2 id = "modal-title"><strong></strong></h2>
+        </div>
+
+        <div class="image content">
+            <div class="ui medium image">
+                <img id = "matchImg" src="">
+            </div>
+
+            <div class = "description">
+                <div class="ui header"><h3 id="provideInstructions"></h3>
+                </div>
+
+                <div class = "ui list">
+                    <div class = "item" id = "link1">Highly Recommended</div>
+                    <div class = "item" id = "link2">Simply Recommended</div>
+                    <div class = "item" id = "link3">A Little Extra</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+<!--___________END OF MODAL____________-->  
 
 
     <script type="text/javascript">
@@ -428,11 +455,21 @@
 
                 scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), $("#q11").val(), $("#q12").val(), $("#q13").val(), $("#q14").val(), $("#q15").val(), $("#q16").val(), $("#q17").val(), $("#q18").val(), $("#q19").val(), $("#q20").val(), $("#q21").val()]
             }
+            console.log(user);
             console.log(user.scores);
             var currentURL = window.location.origin;
 
             $.post(currentURL + "/api/results_data", user, function(data) {
 
+                // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+                $("#modal-title").text(data.Title);
+                $('#matchImg').attr("src", data.TopLink);
+                $("#provideInstructions").text(data.Description);
+                $("#link1").wrap("<a href=" + data.Link1 + "/>");
+                $("#link2").wrap("<a href=" + data.Link2 + "/>");
+                $("#link3").wrap("<a href=" + data.Link3 + "/>");
+
+                $(".ui.basic.active.modal").modal({blurring:true}).modal("toggle");
 
             })
         })
