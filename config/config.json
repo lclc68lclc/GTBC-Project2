@@ -1,7 +1,7 @@
 {
     "development": {
         "username": "root",
-        "password": "185454",
+        "password": "Test123",
         "database": "comparison_data_db",
         "host": "127.0.0.1",
         "dialect": "mysql"
