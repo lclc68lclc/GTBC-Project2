@@ -31,9 +31,13 @@ module.exports = function(app) {
         // console.log(resultsObj);
         db.glassdoor_comments.findAll({ 
             where: {
-                id:null
+                id: {[Op.or]:{[Op.gt]:500}}
             },
-            limit: 100 })
+            limit: 100,
+            order: [ 
+                ['id', 'DESC']
+            ]
+        })
         .then(function(results) {
             res.json(results);
         })
