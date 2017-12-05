@@ -133,7 +133,7 @@
 <!--   <p>A text container is used for the main container, which is useful for single column layouts</p> -->
 <div class="ui indicating progress" data-percent="1" data-total="21" id="bar">
   <div class="bar"></div>
-  <div class="label">Answering Questions</div>
+<!--   <div class="label">Answering Questions</div> -->
 </div>
 
   <div class="ui styled fluid accordion">
@@ -464,10 +464,16 @@
                 $("#link2").wrap("<a href=" + data.Link2 + "/>");
                 $("#link3").wrap("<a href=" + data.Link3 + "/>");
                 // $(".ui.modal").modal({blurring:true}).modal("toggle");
-                $(".ui.modal").show();
+                // changedhere
+                // $(".ui.modal").show();
+                $('#themodal')
+                    .modal( {
+                      observeChanges: true,
+                    })
+                    .modal('show');
 
-            });
-        });
+                          });
+                      });
     var modal = document.getElementById('themodal');
 
         // When the user clicks on (x) inside modal-content, close the modal
