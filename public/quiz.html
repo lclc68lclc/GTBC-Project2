@@ -29,6 +29,7 @@
   <link rel="stylesheet" type="text/css" href="semantic/components/button.css">
   <link rel="stylesheet" type="text/css" href="semantic/components/progress.css">
   <link rel="stylesheet" type="text/css" href="semantic/components/modal.css">
+  <link rel="stylesheet" type="text/css" href="semantic/components/transition.css">
 
 
 
@@ -460,27 +461,24 @@
                 $("#modal-title").text(data.Title);
                 $('#matchImg').attr("src", data.TopLink);
                 $("#provideInstructions").text(data.Description);
-                $("#link1").wrap("<a href=" + data.Link1 + "/>");
-                $("#link2").wrap("<a href=" + data.Link2 + "/>");
-                $("#link3").wrap("<a href=" + data.Link3 + "/>");
+                $("#link1").html("<a href ='" + data.Link1 + "' target = '_blank'>Highly Recommended</a>");
+                $("#link2").html("<a href ='" + data.Link2 + "' target = '_blank'>Simply Recommended</a>");
+                $("#link3").html("<a href ='" + data.Link3 + "' target = '_blank'>A Little Extra</a>");
                 // $(".ui.modal").modal({blurring:true}).modal("toggle");
                 // changedhere
-                // $(".ui.modal").show();
+                $(".ui.modal").show();
                 $('#themodal')
                     .modal( {
                       observeChanges: true,
                     })
                     .modal('show');
-
                           });
                       });
     var modal = document.getElementById('themodal');
-
         // When the user clicks on (x) inside modal-content, close the modal
     $(".close").on("click", function() {
         $(".ui.modal").hide();
     })
-
     </script>
 
 </body>
