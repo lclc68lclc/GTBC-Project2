@@ -1,10 +1,9 @@
 # GTBC-Project2
 - - -
 ## Description
-```
+  
   This application determines if you should quit your job. The application takes in the user's responses regarding their current job and compares them to selected data from GlassDoor. The application can tell you if you should quit your job, acquire new skills/ ask for a raise, or take a vacation.
 
-```
 
 - - -
 
