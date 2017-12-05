@@ -21,10 +21,10 @@ function compareUserResponses(UserArray, userResults) {
             attributes:{
                 include:[
                     [db.sequelize.fn('AVG',db.sequelize.col('DistanceFromHome')),'avgQ6'],
-                    [db.sequelize.fn('AVG',db.sequelize.col('OverTime')),'avgQ7'],
-                    [db.sequelize.fn('AVG',db.sequelize.col('JobInvolvement')),'avgQ16'],
                     [db.sequelize.fn('AVG',db.sequelize.col('EnvironmentSatisfaction')),'avgQ17'],
+                    [db.sequelize.fn('AVG',db.sequelize.col('OverTime')),'avgQ7'],
                     [db.sequelize.fn('AVG',db.sequelize.col('HourlyRate')),'avgQ15'],
+                    [db.sequelize.fn('AVG',db.sequelize.col('JobInvolvement')),'avgQ16'],\
                     [db.sequelize.fn('AVG',db.sequelize.col('NumCompaniesWorked')),"avgQ21"],
                     [db.sequelize.fn('AVG',db.sequelize.col('PercentSalaryHike')),'avgQ11'],
                     [db.sequelize.fn('AVG',db.sequelize.col('PerformanceRating')),'avgQ14'],
@@ -50,13 +50,13 @@ function compareUserResponses(UserArray, userResults) {
 
             var pointsEarned = 0;
 
-            var quesNum = [6,7,16,17,15,21,11,14,18,10,12,9,19,13,20,8]; //Question # needed
+            var quesNum = [6,17,7,15,16,21,11,14,18,10,12,9,19,13,20,8]; //Question # needed
 
             for (var i = 0; i < quesNum.length; i++) {
                     var userValue = UserArray[quesNum[i]];
 
                     var currAvgValue = dataQueryObject[0].get("avgQ"+quesNum[i]);
-                    if (quesNum[i] == 6||quesNum[i] == 7||quesNum[i] == 8||quesNum[i] == 13||quesNum[i] == 19||quesNum[i] == 21){
+                    if (quesNum[i] == 6||quesNum[i] == 8||quesNum[i] == 13||quesNum[i] == 18||quesNum[i] == 20){
                         if (currAvgValue!= null && userValue <= currAvgValue) {
                         console.log(currAvgValue);
                         pointsEarned++;
@@ -70,7 +70,7 @@ function compareUserResponses(UserArray, userResults) {
                     }
 
             }
-
+            console.log("----------Points-------- : " + pointsEarned);
             var percentToQuit = Math.ceil((pointsEarned / (quesNum.length)) * 100);
 
             if (percentToQuit <= 50) {
