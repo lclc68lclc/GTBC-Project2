@@ -466,6 +466,8 @@
         $("#submit").on("click", function() {
             event.preventDefault();
 
+            $(".ui.modal").modal('show');
+
             var user = {
 
                 scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), $("#q11").val(), $("#q12").val(), $("#q13").val(), $("#q14").val(), $("#q15").val(), $("#q16").val(), $("#q17").val(), $("#q18").val(), $("#q19").val(), $("#q20").val(), $("#q21").val()]
