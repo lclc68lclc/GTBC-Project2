@@ -10,71 +10,30 @@
   <title>Quiz</title>
 
   <!-- Semantic UI components: css -->
-  <link rel="stylesheet" type="text/css" href="semantic/components/reset.css">
-  <link rel="stylesheet" type="text/css" href="semantic/components/site.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css" rel="stylesheet" type="text/css" />
 
-  <link rel="stylesheet" type="text/css" href="semantic/components/container.css">
-  <link rel="stylesheet" type="text/css" href="semantic/components/grid.css">
-  <link rel="stylesheet" type="text/css" href="semantic/components/header.css">
-  <link rel="stylesheet" type="text/css" href="semantic/components/image.css">
-  <link rel="stylesheet" type="text/css" href="semantic/components/menu.css">
-
-  <link rel="stylesheet" type="text/css" href="semantic/components/divider.css">
-  <link rel="stylesheet" type="text/css" href="semantic/components/list.css">
-  <link rel="stylesheet" type="text/css" href="semantic/components/segment.css">
-  <link rel="stylesheet" type="text/css" href="semantic/components/dropdown.css">
-  <link rel="stylesheet" type="text/css" href="semantic/components/icon.css">
-  <link rel="stylesheet" type="text/css" href="semantic/components/accordion.css">
-  <link rel="stylesheet" type="text/css" href="semantic/components/progress.css">
-  <link rel="stylesheet" type="text/css" href="semantic/components/button.css">
-  <link rel="stylesheet" type="text/css" href="semantic/components/progress.css">
-  <link rel="stylesheet" type="text/css" href="semantic/components/modal.css">
-  <link rel="stylesheet" type="text/css" href="semantic/components/transition.css">
-
-
-
-<!--  jQuery  -->
+  <!--  jQuery  -->
   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
 
-<!--   <link rel="stylesheet" type="text/css" href="style.css"> -->
-  <script src="semantic/semantic.min.js"></script>
+  <!-- google font -->
+  <link href="https://fonts.googleapis.com/css?family=Londrina+Outline|Raleway" rel="stylesheet">
 
- <!-- google font -->
- <link href="https://fonts.googleapis.com/css?family=Londrina+Outline|Raleway" rel="stylesheet">
-
-<!-- Semantic JS -->
- <script
- src="https://code.jquery.com/jquery-3.1.1.min.js"
- integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
- crossorigin="anonymous"></script>
-​<!-- Semantic UI components: js -->
-<script src="semantic/semantic.min.js"></script>
-<script src="semantic/components/visibility.js"></script>
-<script src="semantic/components/sidebar.js"></script>
-<script src="semantic/components/transition.js"></script>
-<script src="semantic/components/accordion.js"></script>
-<script src="semantic/components/progress.js"></script>
-<script src="semantic/components/range.js"></script>
-<script type="text/javascript" href="semantic/components/accordion.js"></script>
-<script scr="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/components/accordion.js"></script>
-<script src="semantic/components/modal.js"></script>
-
+  <!-- Semantic JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.js"></script>
+  <script type="text/javascript" href="semantic/components/accordion.js"></script>
 
 
   <style type="text/css">
-/*  .ui.menu .item img.logo {
-    margin-right: 1.5em;
-  }*/
+
   .main.container {
     margin-top: 7em;
   }
   .wireframe {
     margin-top: 2em;
   }
-/*  .ui.footer.segment {
-    margin: 5em 0em 0em;
-    padding: 5em 0em;
-  }*/
+
   .footer {
   background-color: white;
   color: black;
@@ -84,41 +43,53 @@
   width: 100%;
   padding: 10px 0;
   margin-bottom: 10px;
-}
-#slidecontainer {
+  }
+
+  #layer_fixed{
+    height: 35px;
     width: 100%;
-}
-.slider {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 15px;
-    border-radius: 5px;
-    background: #d3d3d3;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-}
-.slider:hover {
-    opacity: 1;
-}
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #4CAF50;
-    cursor: pointer;
-}
-.slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #4CAF50;
-    cursor: pointer;
-}
-</style>
+    position: fixed;
+    z-index: 999;
+    top: 40px;
+    left: 0px;
+  }
+/*----------slider----------*/
+  #slidecontainer {
+        width: 100%;
+  }
+
+  .slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 15px;
+      border-radius: 5px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+  }
+  .slider:hover {
+      opacity: 1;
+  }
+  .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #4CAF50;
+      cursor: pointer;
+  }
+  .slider::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #4CAF50;
+      cursor: pointer;
+  }
+
+  </style>
 
 <body data-gr-c-s-loaded="true">
 
@@ -130,114 +101,127 @@
 
 <div class="ui main text container">
   <h1 class="ui header">Take This Quiz to Find Out If It's Time to Say Goodbye</h1>
-    
-<!--   <p>A text container is used for the main container, which is useful for single column layouts</p> -->
-<div class="ui indicating progress" data-percent="1" data-total="21" id="bar">
-  <div class="bar"></div>
-<!--   <div class="label">Answering Questions</div> -->
-</div>
-
-  <div class="ui styled fluid accordion">
   
-    <div class ="active title">
-      <i class="dropdown icon"></i> STEP 1. General Information
+
+  <div id="layer_fixed">
+    <div class="ui indicating progress" data-percent="1" data-total="21" id="bar">
+    <div class="bar"></div>
     </div>
+  </div>
+
+  <div class="ui styled fluid accordion">  
+    <div class ="active title"><i class="dropdown icon"></i> STEP 1. General Information</div>
 
     <div class = "active content">
   <!-- q1 -->
-      <h4> Q. What is your age ? </h4>
-      <input type="number" name="quantity" id="q1" min="10" max="100" onclick="$('#bar').progress({percent: 5});" >
-    <!-- q2-->  
-      <h4> Q. How do you consider yourself to be ? </h4>
-      <select class="ui search dropdown" id="q2" onclick="$('#bar').progress({percent: 10});">
-        <option value="select">Select One Option</option>
-        <option value="1"> Male</option>
-        <option value="2"> Female</option>
-        <option value="3"> Non-Binary</option>
-      </select>
+    <form class="ui form">
+      <div class="field">
+        <h4> Q. What is your age ? </h4>
+          <input type="integer" name="empty" id="q1" min="10" max="100" onclick="$('#bar').progress({percent: 5});" >
+      </div>
+    <!-- q2-->
+      <div class="field">
+        <h4> Q. How do you consider yourself to be ? </h4>
+        <select class="ui dropdown" id="q2" onclick="$('#bar').progress({percent: 10});">
+          <option value="select">Select One Option</option>
+          <option value="1"> Male</option>
+          <option value="2"> Female</option>
+          <option value="3"> Non-Binary</option>
+        </select>
+      </div>
     <!-- q3-->  
-      <h4>Q. What is your martial status ?</h4>
-      <select class="ui search dropdown" id="q3" onclick="$('#bar').progress({percent: 15});">
-        <option value="select">Select One Option</option>
-        <option value="1"> Married</option>
-        <option value="2"> Single</option>
-        <option value="3"> Divorced</option>
-      </select>
-    <!-- q4-->      
-      <h4>Q. What is the highest degress or level of school you have compelete ?</h4>
-      <select class="ui search dropdown" id="q4" onclick="$('#bar').progress({percent: 19});">
-        <option value="select">Select One Option</option>
-        <option value="1"> High School</option>
-        <option value="2"> Some College</option>
-        <option value="3"> Bachelor</option>
-        <option value="4"> Master</option>
-        <option value="5"> Doctorate</option>
-      </select>
-    <!-- q5-->      
-      <h4>Q. What is the highest degress or level of school you have compelete ?</h4>
-      <select class="ui search dropdown" id="q5" onclick="$('#bar').progress({percent: 23});">
-        <option value="select">Select One Option</option>
-        <option value="1"> Full-time</option>
-        <option value="2"> Part-time</option>
-      </select>
-    <!-- q6-->      
-      <h4>Q. How often do you travel for work ?</h4>
-      <select class="ui search dropdown" id="q6" onclick="$('#bar').progress({percent: 28});">
-        <option value="select">Select One Option</option>
-        <option value="1"> Frequently </option>
-        <option value="2"> Rarely </option>
-        <option value="3"> Not at all</option>
-      </select>
-    </div>
-
-<!-- STEP2 -->
-    <div class="title">
-      <i class="dropdown icon"></i>STEP 2. Work - Life Balance
-    </div>
-    
-    <div class="content">
-
-    <!-- q7-->      
-      <h4>Q. How far (in miles) are you from your job ? (1-50mile) </h4>
-        <div id="slidecontainer">
-          <input type="range" min="1" max="50" value="1" class="slider" id="q7" onclick="$('#bar').progress({percent: 33});"><br>
-          <br><p>Value: <span id="q7Display"></span></p>
-        </div>
-
-    <!-- q8-->   
-      <h4>Q. Do you work overtime ? </h4>
-      <select class="ui search dropdown" id="q8" onclick="$('#bar').progress({percent: 38});">
-        <option value="select">Select One Option</option>
-        <option value="1"> Yes </option>
-        <option value="2"> No </option>
-      </select>
-
-    <!-- q9-->  
-      <h4> Q. How many days of work have you missed? (0-365) </h4>
-        <div id="slidecontainer">
-        <input type="range" min="0" max="365" value="0" class="slider" id="q9" onclick="$('#bar').progress({percent: 42});"><br>
-        <br><p>Value: <span id="q9Display"></span></p>
+      <div class="field">
+        <h4>Q. What is your martial status ?</h4>
+        <select class="ui dropdown" id="q3" onclick="$('#bar').progress({percent: 15});">
+          <option value="select">Select One Option</option>
+          <option value="1"> Married</option>
+          <option value="2"> Single</option>
+          <option value="3"> Divorced</option>
+        </select>
+      </div>
+    <!-- q4-->
+      <div class="field">      
+        <h4>Q. What is the highest degress or level of school you have compelete ?</h4>
+        <select class="ui dropdown" id="q4" onclick="$('#bar').progress({percent: 19});">
+          <option value="select">Select One Option</option>
+          <option value="1"> High School</option>
+          <option value="2"> Some College</option>
+          <option value="3"> Bachelor</option>
+          <option value="4"> Master</option>
+          <option value="5"> Doctorate</option>
+        </select>
+      </div>
+    <!-- q5-->
+      <div class="field">      
+        <h4>Q. What is the highest degress or level of school you have compelete ?</h4>
+        <select class="ui dropdown" id="q5" onclick="$('#bar').progress({percent: 23});">
+          <option value="select">Select One Option</option>
+          <option value="1"> Full-time</option>
+          <option value="2"> Part-time</option>
+        </select>
+      </div>
+    <!-- q6-->
+      <div class="field">      
+        <h4>Q. How often do you travel for work ?</h4>
+        <select class="ui dropdown" id="q6" onclick="$('#bar').progress({percent: 28});">
+          <option value="select">Select One Option</option>
+          <option value="1"> Frequently </option>
+          <option value="2"> Rarely </option>
+          <option value="3"> Not at all</option>
+        </select>
       </div>
 
-   <!-- q10-->  
-      <h4> Q. How would you rate your overall work-life balance with your current job ? </h4>
-      <select class="ui search dropdown" id="q10" onclick="$('#bar').progress({percent: 47});">
-        <option value="select">Select One Option</option>
-        <option value="1"> 1 (Lowest) </option>
-        <option value="2"> 2 </option>
-        <option value="3"> 3 </option>
-        <option value="4"> 4 </option>
-        <option value="5"> 5 (Highest) </option>
-      </select>
-
     </div>
+    </form>
+<!-- STEP2 -->
+    <div class="title"><i class="dropdown icon"></i>STEP 2. Work - Life Balance</div>    
+    <div class="content">
+      <form class="ui form">
+        <div class="field">
+    <!-- q7-->      
+        <h4>Q. How far (in miles) are you from your job ? (1-50mile) </h4>
+          <div id="slidecontainer">
+            <input type="range" min="1" max="50" value="1" class="slider" id="q7" onclick="$('#bar').progress({percent: 33});"><br>
+            <br><p>Value: <span id="q7Display"></span></p>
+          </div>
+        </div>
+    <!-- q8-->
+        <div class="field">   
+          <h4>Q. Do you work overtime ? </h4>
+          <select class="ui search dropdown" id="q8" onclick="$('#bar').progress({percent: 38});">
+            <option value="select">Select One Option</option>
+            <option value="1"> Yes </option>
+            <option value="2"> No </option>
+          </select>
+        </div>
+    <!-- q9-->  
+        <div class="field">
+          <h4> Q. How many days of work have you missed? (0-365) </h4>
+          <div id="slidecontainer">
+            <input type="range" min="0" max="365" value="0" class="slider" id="q9" onclick="$('#bar').progress({percent: 42});"><br><br><p>Value: <span id="q9Display"></span></p>
+          </div>
+        </div>
+   <!-- q10-->  
+     <div class="field">
+        <h4> Q. How would you rate your overall work-life balance with your current job ? </h4>
+        <select class="ui search dropdown" id="q10" onclick="$('#bar').progress({percent: 47});">
+          <option value="select">Select One Option</option>
+          <option value="1"> 1 (Lowest) </option>
+          <option value="2"> 2 </option>
+          <option value="3"> 3 </option>
+          <option value="4"> 4 </option>
+          <option value="5"> 5 (Highest) </option>
+        </select>
+    </div>
+  </div>
+</form>
 
 <!-- STEP3 -->
-    <div class="title">
-      <i class="dropdown icon"></i> STEP 3. Benefits
-    </div>
+    <div class="title"><i class="dropdown icon"></i> STEP 3. Benefits</div>
 
     <div class="content">
+                <form class="ui form">
+      <div class="field">
    <!-- q11-->  
       <h4> Q. Do you have stock options or a matched 401k ? </h4>
       <select class="ui search dropdown" id="q11" onclick="$('#bar').progress({percent: 52});">
@@ -247,103 +231,107 @@
         <option value="2"> 401k </option>
         <option value="3"> Both </option>
       </select>
-
+      </div>
    <!-- q12-->  
-      <h4> Q. What was the percentage of your last raise ? (1-50) </h4>
-      <div id="slidecontainer">
-        <input type="range" min="1" max="50" value="1" class="slider" id="q12" onclick="$('#bar').progress({percent: 57});"><br>
-        <br><p>Value: <span id="q12Display"></span></p>
+      <div class="field">
+        <h4> Q. What was the percentage of your last raise ? (1-50) </h4>
+        <div id="slidecontainer">
+          <input type="range" min="1" max="50" value="1" class="slider" id="q12" onclick="$('#bar').progress({percent: 57});"><br><br><p>Value: <span id="q12Display"></span></p>
+        </div>
       </div>
-
-   <!-- q13-->  
-      <h4> Q. How many employee training sessions did your employer offer this year ? (0-6) </h4>
-      <div id="slidecontainer">
-        <input type="range" min="0" max="6" value="0" class="slider" id="q13" onclick="$('#bar').progress({percent: 61});"><br>
-        <br><p>Value: <span id="q13Display"></span></p>
+   <!-- q13--> 
+      <div class="field"> 
+        <h4> Q. How many employee training sessions did your employer offer this year ? (0-6) </h4>
+        <div id="slidecontainer">
+          <input type="range" min="0" max="6" value="0" class="slider" id="q13" onclick="$('#bar').progress({percent: 61});"><br><br><p>Value: <span id="q13Display"></span></p>
+        </div>
       </div>
-
    <!-- q14-->  
-      <h4> Q. How many years has it been since your last promotion ? (1-20) </h4>
-      <div id="slidecontainer">
-        <input type="range" min="1" max="20" value="1" class="slider" id="q14" onclick="$('#bar').progress({percent: 66});"><br>
-        <br><p>Value: <span id="q14Display"></span></p>
+      <div class="field">
+        <h4> Q. How many years has it been since your last promotion ? (1-20) </h4>
+        <div id="slidecontainer">
+          <input type="range" min="1" max="20" value="1" class="slider" id="q14" onclick="$('#bar').progress({percent: 66});"><br>
+          <br><p>Value: <span id="q14Display"></span></p>
+        </div>
       </div>
 
     <!-- q15-->   
-      <h4>Q. Did you get performance evaluation last year ? </h4>
-      <select class="ui search dropdown" id="q15" onclick="$('#bar').progress({percent: 71});">
-        <option value="select">Select One Option</option>
-        <option value="1"> Yes </option>
-        <option value="2"> No </option>
-      </select>
-
+      <div class="field">
+        <h4>Q. Did you get performance evaluation last year ? </h4>
+        <select class="ui search dropdown" id="q15" onclick="$('#bar').progress({percent: 71});">
+          <option value="select">Select One Option</option>
+          <option value="1"> Yes </option>
+          <option value="2"> No </option>
+        </select>
+      </div>
     <!-- q16 -->
-      <h4> Q. How much do you make an hour ? </h4>
-      $   <input type="number" name="quantity" id="q16" min="1" max="9999" onclick="$('#bar').progress({percent: 76});"><br>
-
+      <div class="field">
+        <h4> Q. How much do you make an hour ? </h4>
+          <div class="ui right labeled input">
+          <label for="amount" class="ui label">$</label>
+          <input type="text" name="empty" placeholder="Amount" id="amount">
+          <div class="ui basic label">.00</div>
+          </div>
+      </div>
     </div>
 <!-- STEP4 -->
-    <div class="title">
-      <i class="dropdown icon"></i> STEP 4. Culture
-    </div>
-
+    <div class="title"><i class="dropdown icon"></i> STEP 4. Culture</div>
     <div class="content">
-
-   <!-- q17-->  
-      <h4> Q. Do you like your work environment? </h4>
-      <select class="ui search dropdown" id="q17" onclick="$('#bar').progress({percent: 80});">
-        <option value="select">Select One Option</option>
-        <option value="1"> 1 (No) </option>
-        <option value="2"> 2 (Not Really)</option>
-        <option value="3"> 3 (Kinda)</option>
-        <option value="4"> 4 (Yes)</option>
-      </select>
-
+      <form class="ui form">
+        <div class="field">
+      <!-- q17-->  
+        <h4> Q. Do you like your work environment? </h4>
+          <select class="ui search dropdown" id="q17" onclick="$('#bar').progress({percent: 80});">
+            <option value="select">Select One Option</option>
+            <option value="1"> 1 (No) </option>
+            <option value="2"> 2 (Not Really)</option>
+            <option value="3"> 3 (Kinda)</option>
+            <option value="4"> 4 (Yes)</option>
+          </select>
+        </div>
    <!-- q18-->  
-      <h4> Q. Do you get along with your co-worker ? </h4>
-      <select class="ui search dropdown" id="q18" onclick="$('#bar').progress({percent: 85});">
-        <option value="select">Select One Option</option>
-        <option value="1"> 1 (Never) </option>
-        <option value="2"> 2 </option>
-        <option value="3"> 3 </option>
-        <option value="4"> 4 </option>
-        <option value="5"> 5 (All the time) </option>
-      </select>
-
+        <div class="field">
+          <h4> Q. Do you get along with your co-worker ? </h4>
+          <select class="ui search dropdown" id="q18" onclick="$('#bar').progress({percent: 85});">
+            <option value="select">Select One Option</option>
+            <option value="1"> 1 (Never) </option>
+            <option value="2"> 2 </option>
+            <option value="3"> 3 </option>
+            <option value="4"> 4 </option>
+            <option value="5"> 5 (All the time) </option>
+          </select>
+        </div>
    <!-- q19-->  
-      <h4> Q. How many years have you been with your current company ? (0-50) </h4>
-      <div id="slidecontainer">
-        <input type="range" min="0" max="50" value="0" class="slider" id="q19" onclick="$('#bar').progress({percent: 90});">
-        <br><p>Value: <span id="q19Display"></span></p>
-      </div>      
+      <div class="field">
+        <h4> Q. How many years have you been with your current company ? (0-50) </h4>
+        <div id="slidecontainer">
+        <input type="range" min="0" max="50" value="0" class="slider" id="q19" onclick="$('#bar').progress({percent: 90});"><br><p>Value: <span id="q19Display"></span></p>
+        </div>    
+      </div>  
    <!-- q20-->  
-      <h4> Q. How many years have you been with your current manager ? (0-50) </h4>
-      <div id="slidecontainer">
-        <input type="range" min="0" max="50" value="0" class="slider" id="q20" onclick="$('#bar').progress({percent: 95});">
-        <br><p>Value: <span id="q20Display"></span></p>
-      </div>   
+      <div class="field">
+        <h4> Q. How many years have you been with your current manager ? (0-50) </h4>
+        <div id="slidecontainer">
+          <input type="range" min="0" max="50" value="0" class="slider" id="q20" onclick="$('#bar').progress({percent: 95});"><br><p>Value: <span id="q20Display"></span></p>
+        </div>   
+      </div>
    <!-- q21-->  
-      <h4> Q. How many jobs have you had in last 5 years ? (1-20) </h4>
-      <div id="slidecontainer">
-        <input type="range" min="1" max="20" value="1" class="slider" id="q21" onclick="$('#bar').progress({percent: 100});">
-        <br><p>Value: <span id="q21Display"></span></p>
-      </div>   
-
-    </div>
-
-
-
+      <div class="field">
+        <h4> Q. How many jobs have you had in last 5 years ? (1-20) </h4>
+        <div id="slidecontainer">
+          <input type="range" min="1" max="20" value="1" class="slider" id="q21" onclick="$('#bar').progress({percent: 100});"><br><p>Value: <span id="q21Display"></span></p>
+        </div>  
+      </div> 
+    </form>
   </div>
+  </div>
+      <br><button class="fluid positive ui button" id="submit">S U B M I T</button><br>
 
-      <br> <button class="fluid positive ui button" id="submit">S U B M I T</button><br>
-
-<footer class="footer">
-  <h6>© 2017 Georgia Tech Coding Bootcamp</h6>
-</footer>
-
-</div>
-
-
+  <footer class="footer">
+    <h6>© 2017 Georgia Tech Coding Bootcamp</h6>
+  </footer>
+  
+  </div>
 
 <!--_______________MODAL____________-->        
     <div class="ui modal" id = "themodal">
@@ -367,37 +355,65 @@
                     <div class = "item" id = "link2">Simply Recommended</div>
                     <div class = "item" id = "link3">A Little Extra</div>
                 </div>
-                <p>If you want to send this information to your computer write down your E-mail address and click submit button! </p>
-                <div class="ui form success">
-                  <div class="field">
-                    <label>E-mail</label>
-                    <input type="email" placeholder="username@gmail.com">
-                  </div>
-                </div> 
             </div>
-
         </div>
         <div class="actions">
           <div class="ui black deny button close">Close
           <i class="remove icon"></i></div>
-          <div class="ui positive right labeled icon button">Submit<i class="checkmark icon"></i></div>
+
         </div>
 
     </div>
 <!--___________END OF MODAL____________-->  
 
-
-    <script type="text/javascript">
-        $('#bar')
-  .progress({
-    text: {
-    active  : 'Answering {percent} of {total} Questions',
-    success : '{total} Questions Uploaded!'
-  }
+  <script type="text/javascript">
+    // progressbar
+    $('#bar').progress({
+      text: {
+      active  : 'Answering {percent} of {total} Questions',
+      success : '{total} Questions Uploaded!'
+      }
+    });
+  // accordion
+  $(document).ready(function() {
+    $(".accordion").accordion();
   });
-        $(document).ready(function() {
-            $(".accordion").accordion();
-        });
+
+  // validation
+  $('form')
+  .form({
+    on: 'blur',
+    fields: {
+      integer: {
+      identifier  : 'integer',
+      rules: [
+        {
+        type   : 'integer[1..100]',
+        prompt : 'Please enter an integer value'
+        }
+      ]
+      },
+      empty: {
+        identifier  : 'empty',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please enter a value'
+          }
+        ]
+      },
+      dropdown: {
+        identifier  : 'dropdown',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please select a dropdown value'
+          }
+        ]
+      }
+    }
+  });
+// ___________slider____________ 
         // q7
         var slider = document.getElementById("q7");
         var output = document.getElementById("q7Display");
@@ -447,39 +463,40 @@
         slider.oninput = function() {
             document.getElementById("q21Display").innerHTML = this.value;
         }
-        $("#submit").on("click", function() {
-            event.preventDefault();
-            // $(".ui.modal").modal('show');
-            var user = {
-                scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), $("#q11").val(), $("#q12").val(), $("#q13").val(), $("#q14").val(), $("#q15").val(), $("#q16").val(), $("#q17").val(), $("#q18").val(), $("#q19").val(), $("#q20").val(), $("#q21").val()]
+  //submit button
+  $("#submit").on("click", function() {
+    event.preventDefault();
+    var user = {
+              scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), $("#q11").val(), $("#q12").val(), $("#q13").val(), $("#q14").val(), $("#q15").val(), $("#q16").val(), $("#q17").val(), $("#q18").val(), $("#q19").val(), $("#q20").val(), $("#q21").val()]
             }
+
             console.log(user);
-            console.log(user.scores);
-            var currentURL = window.location.origin;
-            $.post(currentURL + "/api/results_data", user, function(data) {
-                // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-                $("#modal-title").text(data.Title);
-                $('#matchImg').attr("src", data.TopLink);
-                $("#provideInstructions").text(data.Description);
-                $("#link1").html("<a href ='" + data.Link1 + "' target = '_blank'>Highly Recommended</a>");
-                $("#link2").html("<a href ='" + data.Link2 + "' target = '_blank'>Simply Recommended</a>");
-                $("#link3").html("<a href ='" + data.Link3 + "' target = '_blank'>A Little Extra</a>");
-                // $(".ui.modal").modal({blurring:true}).modal("toggle");
-                // changedhere
-                $(".ui.modal").show();
-                $('#themodal')
-                    .modal( {
-                      observeChanges: true,
-                    })
-                    .modal('show');
-                          });
-                      });
+
+    var currentURL = window.location.origin;
+    $.post(currentURL + "/api/results_data", user, function(data) {
+    // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+      $("#modal-title").text(data.Title);
+      $('#matchImg').attr("src", data.TopLink);
+      $("#provideInstructions").text(data.Description);
+      $("#link1").html("<a href ='" + data.Link1 + "' target = '_blank'>Highly Recommended</a>");
+      $("#link2").html("<a href ='" + data.Link2 + "' target = '_blank'>Simply Recommended</a>");
+      $("#link3").html("<a href ='" + data.Link3 + "' target = '_blank'>A Little Extra</a>");
+      $(".ui.modal").show();
+      $('#themodal')
+      .modal( {
+        observeChanges: true,
+      })
+      .modal('show');
+      });
+    });
+
     var modal = document.getElementById('themodal');
         // When the user clicks on (x) inside modal-content, close the modal
     $(".close").on("click", function() {
         $(".ui.modal").hide();
     })
-    </script>
+
+  </script>
 
 </body>
 
