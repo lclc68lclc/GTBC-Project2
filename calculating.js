@@ -9,7 +9,7 @@ function compareUserResponses(UserArray, userResults) {
                 Description: "Could not query the database"
             });
     }
-    else{
+    else {
         var dataQueryObject;
         db.glassdoor_comments.findAll({
             where: {
@@ -29,7 +29,7 @@ function compareUserResponses(UserArray, userResults) {
                     [db.sequelize.fn('AVG',db.sequelize.col('PercentSalaryHike')),'avgQ11'],
                     [db.sequelize.fn('AVG',db.sequelize.col('PerformanceRating')),'avgQ14'],
                     [db.sequelize.fn('AVG',db.sequelize.col('RelationshipSatisfaction')),'avgQ18'],
-                    [db.sequelize.fn('AVG',db.sequelize.col('StockOptions')),'avgQ10'],
+                    [db.sequelize.fn('AVG',db.sequelize.col('StockOptionLevel')),'avgQ10'],
                     [db.sequelize.fn('AVG',db.sequelize.col('TrainingTimesLastYear')),'avgQ12'],
                     [db.sequelize.fn('AVG',db.sequelize.col('WorkLifeBalance')),'avgQ9'],
                     [db.sequelize.fn('AVG',db.sequelize.col('YearsAtCompany')),'avgQ19'],
@@ -111,6 +111,7 @@ function compareUserResponses(UserArray, userResults) {
                 };
             };
             userResults(objWithLinks);
+            
         });
     }; //end of else
 };
