@@ -1,4 +1,4 @@
-var db = require("../models");
+ var db = require("../models");
 var compareUserResponses = require('../calculating.js');
 var express = require("express");
 var exphbs = require("express-handlebars");
@@ -9,8 +9,8 @@ module.exports = function(app) {
      
     // Register `hbs.engine` with the Express app. 
     // app.engine('handlebars', hbs.engine);
-    app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-    app.set('view engine', 'handlebars');
+    // app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+    // app.set('view engine', 'handlebars');
 
     //Get the model from the db
     app.get("/api/glassdoor_data", function(req, res) {
@@ -36,23 +36,33 @@ module.exports = function(app) {
             limit: 100 })
         .then(function(results) {
             res.json(results);
+        })
+        .catch(function(err){
+            console.log("err in get: " + err);
+            res.json(err);
         });
 
-        console.log(req.body);
+        // console.log(req.body);
         //var resultsObj = compareUserResponses(req.body);
         //console.log(resultsObj);
     });
 
     // POST route for posting a quiz to the db
     app.post("/api/results_data", function(req, res) {
-        // console.log('Scores[]'+ req.body["scores"])
-        var resultsObj;
-        compareUserResponses(req.body["scores"], function(cb){
-            resultsObj = cb;
-            // console.log(resultsObj);
-        });
+        if (req.body["scores"] === undefined) {
+            return res.json({
+                Title: "An Error was Detected",
+                Description: "Please make sure your request is an object, with a key named 'scores' & an array of values"
+            });
+        }  
 
-        db.glassdoor_comments.create({
+        else {
+            var resultsObj;
+            compareUserResponses(req.body["scores"], function(cb){
+                resultsObj = cb;
+            });
+
+            db.glassdoor_comments.create({
                 Age: req.body["scores"][0],
                 Gender: req.body["scores"][1],
                 MaritalStatus: req.body["scores"][2],
@@ -76,8 +86,18 @@ module.exports = function(app) {
                 YearsWithCurrManager: req.body["scores"][20],
                 NumCompaniesWorked: req.body["scores"][21],
             })
-            .then(function() {
+            .then(function(data) {
                 return res.json(resultsObj);
+                
+            })
+            .catch(err => {
+                
+                return res.json({
+                    Title: "An Error Has Ocurred",
+                    Description: "Could not query the database"
+                });
+                // return res.json(err);
             });
-    });
+        }
+    });  
 };

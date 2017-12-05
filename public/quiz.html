@@ -28,6 +28,9 @@
   <link rel="stylesheet" type="text/css" href="semantic/components/progress.css">
   <link rel="stylesheet" type="text/css" href="semantic/components/button.css">
   <link rel="stylesheet" type="text/css" href="semantic/components/progress.css">
+  <link rel="stylesheet" type="text/css" href="semantic/components/modal.css">
+
+
 
 <!--  jQuery  -->
   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
@@ -53,6 +56,9 @@
 <script src="semantic/components/range.js"></script>
 <script type="text/javascript" href="semantic/components/accordion.js"></script>
 <script scr="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/components/accordion.js"></script>
+<script src="semantic/components/modal.js"></script>
+
+
 
   <style type="text/css">
 /*  .ui.menu .item img.logo {
@@ -339,8 +345,8 @@
 
 
 <!--_______________MODAL____________-->        
-    <div class="ui modal">
-        <i class="close icon"></i>
+    <div class="ui modal" id = "themodal">
+        <i class="close icon close"></i>
 
         <div class="header">
             <h2 id = "modal-title"><strong></strong></h2>
@@ -371,7 +377,7 @@
 
         </div>
         <div class="actions">
-          <div class="ui black deny button">Close
+          <div class="ui black deny button close">Close
           <i class="remove icon"></i></div>
           <div class="ui positive right labeled icon button">Submit<i class="checkmark icon"></i></div>
         </div>
@@ -442,7 +448,7 @@
         }
         $("#submit").on("click", function() {
             event.preventDefault();
-            $(".ui.modal").modal('show');
+            // $(".ui.modal").modal('show');
             var user = {
                 scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), $("#q11").val(), $("#q12").val(), $("#q13").val(), $("#q14").val(), $("#q15").val(), $("#q16").val(), $("#q17").val(), $("#q18").val(), $("#q19").val(), $("#q20").val(), $("#q21").val()]
             }
@@ -457,9 +463,18 @@
                 $("#link1").wrap("<a href=" + data.Link1 + "/>");
                 $("#link2").wrap("<a href=" + data.Link2 + "/>");
                 $("#link3").wrap("<a href=" + data.Link3 + "/>");
-                $(".ui.modal").modal({blurring:true}).modal("toggle");
+                // $(".ui.modal").modal({blurring:true}).modal("toggle");
+                $(".ui.modal").show();
+
             });
         });
+    var modal = document.getElementById('themodal');
+
+        // When the user clicks on (x) inside modal-content, close the modal
+    $(".close").on("click", function() {
+        $(".ui.modal").hide();
+    })
+
     </script>
 
 </body>
