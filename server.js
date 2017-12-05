@@ -14,6 +14,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
+// app.use(function(err, req, res, next) {
+//     res.status(err.status || 500);
+//     res.render('error', {
+//         Title: "An Error Has Ocurred",
+//         Description: "The formatting for your request is incorrect. We could not locate the key/array 'scores'"
+//     });
+// });
 // Requiring our routes
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
