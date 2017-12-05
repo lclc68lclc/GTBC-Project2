@@ -112,13 +112,13 @@
     <form class="ui form">
       <div class="field">
         <h4> Q. What is your age ? </h4>
-          <input type="integer" name="empty" id="q1" min="10" max="100" onclick="$('#bar').progress({percent: 5});" >
+          <input type="number" name="empty" id="q1" min="10" max="100" onclick="$('#bar').progress({percent: 5});" >
       </div>
     <!-- q2-->
       <div class="field">
         <h4> Q. How do you consider yourself to be ? </h4>
-        <select class="ui dropdown" id="q2" onclick="$('#bar').progress({percent: 10});">
-          <option value="select">Select One Option</option>
+        <select class="ui dropdown" name="dropdown" id="q2" onclick="$('#bar').progress({percent: 10});">
+          <option value=" ">Select One Option</option>
           <option value="1"> Male</option>
           <option value="2"> Female</option>
           <option value="3"> Non-Binary</option>
@@ -127,8 +127,8 @@
     <!-- q3-->  
       <div class="field">
         <h4>Q. What is your martial status ?</h4>
-        <select class="ui dropdown" id="q3" onclick="$('#bar').progress({percent: 15});">
-          <option value="select">Select One Option</option>
+        <select class="ui dropdown" name="dropdown" id="q3" onclick="$('#bar').progress({percent: 15});">
+          <option value=" ">Select One Option</option>
           <option value="1"> Married</option>
           <option value="2"> Single</option>
           <option value="3"> Divorced</option>
@@ -137,8 +137,8 @@
     <!-- q4-->
       <div class="field">      
         <h4>Q. What is the highest degress or level of school you have compelete ?</h4>
-        <select class="ui dropdown" id="q4" onclick="$('#bar').progress({percent: 19});">
-          <option value="select">Select One Option</option>
+        <select class="ui dropdown" name="dropdown" id="q4" onclick="$('#bar').progress({percent: 19});">
+          <option value=" ">Select One Option</option>
           <option value="1"> High School</option>
           <option value="2"> Some College</option>
           <option value="3"> Bachelor</option>
@@ -149,8 +149,8 @@
     <!-- q5-->
       <div class="field">      
         <h4>Q. What is the highest degress or level of school you have compelete ?</h4>
-        <select class="ui dropdown" id="q5" onclick="$('#bar').progress({percent: 23});">
-          <option value="select">Select One Option</option>
+        <select class="ui dropdown" name="dropdown" id="q5" onclick="$('#bar').progress({percent: 23});">
+          <option value=" ">Select One Option</option>
           <option value="1"> Full-time</option>
           <option value="2"> Part-time</option>
         </select>
@@ -158,8 +158,8 @@
     <!-- q6-->
       <div class="field">      
         <h4>Q. How often do you travel for work ?</h4>
-        <select class="ui dropdown" id="q6" onclick="$('#bar').progress({percent: 28});">
-          <option value="select">Select One Option</option>
+        <select class="ui dropdown" name="dropdown" id="q6" onclick="$('#bar').progress({percent: 28});">
+          <option value=" ">Select One Option</option>
           <option value="1"> Frequently </option>
           <option value="2"> Rarely </option>
           <option value="3"> Not at all</option>
@@ -183,8 +183,8 @@
     <!-- q8-->
         <div class="field">   
           <h4>Q. Do you work overtime ? </h4>
-          <select class="ui search dropdown" id="q8" onclick="$('#bar').progress({percent: 38});">
-            <option value="select">Select One Option</option>
+          <select class="ui search dropdown" name="dropdown" id="q8" onclick="$('#bar').progress({percent: 38});">
+            <option value=" ">Select One Option</option>
             <option value="1"> Yes </option>
             <option value="2"> No </option>
           </select>
@@ -199,8 +199,8 @@
    <!-- q10-->  
      <div class="field">
         <h4> Q. How would you rate your overall work-life balance with your current job ? </h4>
-        <select class="ui search dropdown" id="q10" onclick="$('#bar').progress({percent: 47});">
-          <option value="select">Select One Option</option>
+        <select class="ui search dropdown" name="dropdown" id="q10" onclick="$('#bar').progress({percent: 47});">
+          <option value=" ">Select One Option</option>
           <option value="1"> 1 (Lowest) </option>
           <option value="2"> 2 </option>
           <option value="3"> 3 </option>
@@ -219,8 +219,8 @@
       <div class="field">
    <!-- q11-->  
       <h4> Q. Do you have stock options or a matched 401k ? </h4>
-      <select class="ui search dropdown" id="q11" onclick="$('#bar').progress({percent: 52});">
-        <option value="select">Select One Option</option>
+      <select class="ui search dropdown" name="dropdown" id="q11" onclick="$('#bar').progress({percent: 52});">
+        <option value=" ">Select One Option</option>
         <option value="0"> No </option>
         <option value="1"> Stock options/Equity </option>
         <option value="2"> 401k </option>
@@ -253,8 +253,8 @@
     <!-- q15-->   
       <div class="field">
         <h4>Q. Did you get performance evaluation last year ? </h4>
-        <select class="ui search dropdown" id="q15" onclick="$('#bar').progress({percent: 71});">
-          <option value="select">Select One Option</option>
+        <select class="ui search dropdown" name="dropdown" id="q15" onclick="$('#bar').progress({percent: 71});">
+          <option value=" ">Select One Option</option>
           <option value="1"> Yes </option>
           <option value="2"> No </option>
         </select>
@@ -264,7 +264,7 @@
         <h4> Q. How much do you make an hour ? </h4>
           <div class="ui right labeled input">
           <label for="amount" class="ui label">$</label>
-          <input type="text" name="empty" placeholder="Amount" id="amount">
+          <input type="number" name="empty" placeholder="Amount" id="amount">
           <div class="ui basic label">.00</div>
           </div>
       </div>
@@ -276,8 +276,8 @@
         <div class="field">
       <!-- q17-->  
         <h4> Q. Do you like your work environment? </h4>
-          <select class="ui search dropdown" id="q17" onclick="$('#bar').progress({percent: 80});">
-            <option value="select">Select One Option</option>
+          <select class="ui search dropdown" name="dropdown" id="q17" onclick="$('#bar').progress({percent: 80});">
+            <option value=" ">Select One Option</option>
             <option value="1"> 1 (No) </option>
             <option value="2"> 2 (Not Really)</option>
             <option value="3"> 3 (Kinda)</option>
@@ -287,34 +287,35 @@
    <!-- q18-->  
         <div class="field">
           <h4> Q. Do you get along with your co-worker ? </h4>
-          <select class="ui search dropdown" id="q18" onclick="$('#bar').progress({percent: 85});">
-            <option value="select">Select One Option</option>
+          <select class="ui search dropdown" name="dropdown" id="q18" onclick="$('#bar').progress({percent: 85});">
+            <option value=" ">Select One Option</option>
             <option value="1"> 1 (Never) </option>
             <option value="2"> 2 </option>
             <option value="3"> 3 </option>
             <option value="4"> 4 </option>
             <option value="5"> 5 (All the time) </option>
           </select>
-        </div>
+        </div><br>
    <!-- q19-->  
       <div class="field">
         <h4> Q. How many years have you been with your current company ? (0-50) </h4>
         <div id="slidecontainer">
-        <input type="range" min="0" max="50" value="0" class="slider" id="q19" onclick="$('#bar').progress({percent: 90});"><br><p>Value: <span id="q19Display"></span></p>
+        <input type="range" min="0" max="50" value="0" class="slider" id="q19" onclick="$('#bar').progress({percent: 90});"><br><br><p>Value: <span id="q19Display"></span></p><br>
         </div>    
       </div>  
    <!-- q20-->  
       <div class="field">
         <h4> Q. How many years have you been with your current manager ? (0-50) </h4>
         <div id="slidecontainer">
-          <input type="range" min="0" max="50" value="0" class="slider" id="q20" onclick="$('#bar').progress({percent: 95});"><br><p>Value: <span id="q20Display"></span></p>
+          <input type="range" min="0" max="50" value="0" class="slider" id="q20" onclick="$('#bar').progress({percent: 95});"><br>
+          <br><p>Value: <span id="q20Display"></span></p><br>
         </div>   
       </div>
    <!-- q21-->  
       <div class="field">
         <h4> Q. How many jobs have you had in last 5 years ? (1-20) </h4>
         <div id="slidecontainer">
-          <input type="range" min="1" max="20" value="1" class="slider" id="q21" onclick="$('#bar').progress({percent: 100});"><br><p>Value: <span id="q21Display"></span></p>
+          <input type="range" min="1" max="20" value="1" class="slider" id="q21" onclick="$('#bar').progress({percent: 100});"><br><br><p>Value: <span id="q21Display"></span></p><br>
         </div>  
       </div> 
     </form>
@@ -374,39 +375,14 @@
     $(".accordion").accordion();
   });
   // validation
-  $('form')
+  $('.ui.form')
   .form({
-    on: 'blur',
     fields: {
-      integer: {
-      identifier  : 'integer',
-      rules: [
-        {
-        type   : 'integer[1..100]',
-        prompt : 'Please enter an integer value'
-        }
-      ]
-      },
-      empty: {
-        identifier  : 'empty',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Please enter a value'
-          }
-        ]
-      },
-      dropdown: {
-        identifier  : 'dropdown',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Please select a dropdown value'
-          }
-        ]
-      }
+      dropdown   : 'empty',
+      empty : ['maxLength[2]', 'empty']
     }
-  });
+  })
+;
 // ___________slider____________ 
         // q7
         var slider = document.getElementById("q7");
