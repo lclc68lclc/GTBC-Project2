@@ -31,7 +31,7 @@ module.exports = function(app) {
         // console.log(resultsObj);
         db.glassdoor_comments.findAll({ 
             where: {
-                id: {[Op.gt]:500}
+                id: {[db.sequelize.Op.gt]:500}
             },
             limit: 100,
             order: [ 
